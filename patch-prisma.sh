@@ -41,6 +41,20 @@ echo "Baixando o tema Prisma Telecom..."
 echo ""
 svn co https://github.com/LeandroSaltori/ipbx-prismatelecom/trunk/web/themes /var/www/html/themes
 echo ""
+echo "Renomeando as pastas 'lang' e modules'"
+cd /var/www/html/ 
+mv lang lang_old
+mv modules modules_old
+echo ""
+echo " Baixando as pastas 'lang' e 'modules' "
+svn co https://github.com/LeandroSaltori/ipbx-prismatelecom/trunk/web/lang /var/www/html/lang
+echo ""
+svn co https://github.com/LeandroSaltori/ipbx-prismatelecom/trunk/web/modules /var/www/html/modules
+echo ""
+echo ""
+echo ""
+echo ""
+
 echo ""
 echo "||||||||| ||||||||| |||  ||||||||  |||\\    //|||  ||||||||||"
 echo "|||   ||| |||   |||      |||       ||| \\  // |||  |||    |||"
