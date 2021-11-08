@@ -35,7 +35,7 @@ yum -y install subversion
 echo ""
 echo "Baixando o Favicon.."
 echo ""
-svn co https://github.com/LeandroSaltori/ipbx-prismatelecom/blob/main/web/favicon.ico /var/www/html 
+svn co https://github.com/LeandroSaltori/ipbx-prismatelecom/trunk/web/favicon.ico /var/www/html 
 #wget -c -P /var/www/html  https://github.com/LeandroSaltori/ipbx-prismatelecom/blob/main/web/favicon.ico
 echo ""
 echo "Baixando o tema Prisma Telecom..."
