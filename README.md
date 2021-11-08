@@ -7,7 +7,7 @@ This is a patch and files for installing custom Isabel Linux by Prisma Telecom.
 Este é um patch e arquivos para instalação de Issabel Linux personalizada pela Prisma Telecom.
 
 ### Sobre ###
-  - CentOS 7 [https://store.docker.com/images/centos]
+  - CentOS 7 [https://store.docker.com/images/centos] - Install Docker
  
 ## Outras Informações ##
   - CentOS 7
