@@ -38,7 +38,7 @@ echo ""
 yum -y update && yum -y upgrade
 clear
 echo ""
-
+echo ""
 echo "Instalando OpenVPN"
 yum install issabel-easyvpn -y
 echo ""
@@ -70,7 +70,7 @@ echo ""
 echo ""
 echo ""
 echo ""
-
+echo ""
 echo ""
 echo "||||||||| ||||||||| |||  ||||||||  |||\\    //|||  ||||||||||"
 echo "|||   ||| |||   |||      |||       ||| \\  // |||  |||    |||"
