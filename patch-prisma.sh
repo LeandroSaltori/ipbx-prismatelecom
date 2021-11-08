@@ -13,7 +13,7 @@ echo "Autor Leandro Saltori - Empresa Prisma Telecom - Franca"
 echo "https://www.prismatelecom.com / 016 3702 - 7844"
 echo "==========================================================="
 echo ""
-sleep 15
+sleep 10
 echo ""
 echo "INICIANDO O PROCESSO..."
 echo ""
@@ -35,7 +35,8 @@ yum -y install subversion
 echo ""
 echo "Baixando o Favicon.."
 echo ""
-wget -c -P /var/www/html  https://github.com/LeandroSaltori/ipbx-prismatelecom/blob/main/web/favicon.ico
+svn co https://github.com/LeandroSaltori/ipbx-prismatelecom/blob/main/web/favicon.ico /var/www/html 
+#wget -c -P /var/www/html  https://github.com/LeandroSaltori/ipbx-prismatelecom/blob/main/web/favicon.ico
 echo ""
 echo "Baixando o tema Prisma Telecom..."
 echo ""
@@ -46,7 +47,7 @@ cd /var/www/html/
 mv lang lang_old
 mv modules modules_old
 echo ""
-echo " Baixando as pastas 'lang' e 'modules' "
+echo "Baixando as pastas 'lang' e 'modules' "
 svn co https://github.com/LeandroSaltori/ipbx-prismatelecom/trunk/web/lang /var/www/html/lang
 echo ""
 svn co https://github.com/LeandroSaltori/ipbx-prismatelecom/trunk/web/modules /var/www/html/modules
