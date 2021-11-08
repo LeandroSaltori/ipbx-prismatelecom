@@ -29,7 +29,7 @@ clear
 echo ""
 echo ""
 echo "Instalando  subversion"
-yum install subversion
+yum -y install subversion
 echo ""
 echo "Baixando o Favicon.."
 echo ""
