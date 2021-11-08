@@ -1,0 +1,14 @@
+<html>
+    <header>
+        <link rel="stylesheet" href="/themes/{$THEMENAME}/styles.css">
+        <link rel="stylesheet" href="/themes/{$THEMENAME}/help.css">
+    </header>
+    <body>
+        <h1>{$node_name}</h1>
+	<p>The module "Addons License" lets you register a licnse for a purchased Issabel commercial addon</p>
+        <br />
+	<h2>Register License</h2>
+	<p>To register a new addon license, just click the button, fill the serial code and click the Register button</p>
+        <br />
+    </body>
+</html>

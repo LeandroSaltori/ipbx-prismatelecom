@@ -1,0 +1,44 @@
+<?php
+  /* vim: set expandtab tabstop=4 softtabstop=4 shiftwidth=4:
+  Codificación: UTF-8
+  +----------------------------------------------------------------------+
+  | Issabel version {ISSBEL_VERSION}                                               |
+  | http://www.issabel.org                                               |
+  +----------------------------------------------------------------------+
+  | Copyright (c) 2017 Issabel Foundation                                |
+  | Copyright (c) 2006 Palosanto Solutions S. A.                         |
+  +----------------------------------------------------------------------+
+  | The contents of this file are subject to the General Public License  |
+  | (GPL) Version 2 (the "License"); you may not use this file except in |
+  | compliance with the License. You may obtain a copy of the License at |
+  | http://www.opensource.org/licenses/gpl-license.php                   |
+  |                                                                      |
+  | Software distributed under the License is distributed on an "AS IS"  |
+  | basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See  |
+  | the License for the specific language governing rights and           |
+  | limitations under the License.                                       |
+  +----------------------------------------------------------------------+
+  | The Initial Developer of the Original Code is PaloSanto Solutions    |
+  +----------------------------------------------------------------------+
+  $Id: en.lang,v 1.1 2020-06-04 06:06:46 Prisma Telecom suporte@prismatelecom.com Exp $ */
+global $arrLangModule;
+$arrLangModule=array(
+"Download" => "Download",
+"Softphones" => "Softphones e Suporte",
+"Developer Description" => "Descrição do Programa",
+"Developer" => "Ramal Suporte",
+"Download Link" => "Baixe aqui: ",
+
+"xlite_software_description" => "Faça o download do programa no link abaixo, e entre em contato com o suporte Prisma Telecom.",
+"xlite_manufacturer_description" => "O EyeBeam 1.5 é um software desenvolvido para aprimorar as comunicações de voz sobre IP.
+Com interface de usuário intuitiva, facilitando fazer e receber chamadas.",
+
+"microsip_software_description" => "Faça o download do programa no link abaixo, e entre em contato com o suporte Prisma Telecom.",
+"microsip_manufacturer_description" => "MicroSIP - softphone SIP portátil de código aberto baseado na pilha PJSIP para Windows OS.
+Permite realizar chamadas de alta qualidade via protocolo SIP aberto.",
+
+
+"zoiper_software_description" => "Faça o download do programa no link abaixo, e entre em contato com o suporte Prisma Telecom.",
+"zoiper_manufacturer_description" => "O AnyDesk é uma ferramenta que você pode usar para controlar qualquer computador com Windows, Linux ou OS X e também aparelhos portáteis com iOS ou Android. O programa conecta dois computadores e espelha a Área de trabalho de um no outro Este programa é muito utilizado para manutenções remotas ou preventivas.",
+);
+?>

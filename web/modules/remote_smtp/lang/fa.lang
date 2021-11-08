@@ -1,0 +1,62 @@
+<?php
+/* vim: set expandtab tabstop=4 softtabstop=4 shiftwidth=4:
+  Codificación: UTF-8
+  +----------------------------------------------------------------------+
+  | Issabel version 4.0                                                  |
+  | http://www.issabel.org                                               |
+  +----------------------------------------------------------------------+
+  | Copyright (c) 2019 Issabel Foundation                                |
+  | Copyright (c) 2006 Palosanto Solutions S. A.                         |
+  +----------------------------------------------------------------------+
+  | The contents of this file are subject to the General Public License  |
+  | (GPL) Version 2 (the "License"); you may not use this file except in |
+  | compliance with the License. You may obtain a copy of the License at |
+  | http://www.opensource.org/licenses/gpl-license.php                   |
+  |                                                                      |
+  | Software distributed under the License is distributed on an "AS IS"  |
+  | basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See  |
+  | the License for the specific language governing rights and           |
+  | limitations under the License.                                       |
+  +----------------------------------------------------------------------+
+  | The Initial Developer of the Original Code is PaloSanto Solutions    |
+  | Translate by: Haamed Kouhfallah                                      |
+  | Email: k.haamed@gmail.com                                            |
+  +----------------------------------------------------------------------+
+  $Id: fa.lang,v 1.1 2019-11-30 04:08:50 Haamed Kouhfallah k.haamed@gmail.com Exp $
+*/
+global $arrLangModule;
+$arrLangModule=array(
+"Host Name" => "نام هاست",
+"Remote SMTP Delivery" => "SMTP تحويل از راه دور از طريق پروتکل",
+"Remote SMTP Server" => "SMTP سرور کنترل از راه دور",
+"Port" => "شماره پورت",
+"Username" => "كد كاربري",
+"Password" => "رمز عبور",
+"Enable" => "فعال سازي",
+"Disable" => "غيرفعال سازي",
+"Enabled" => "فعال سازي شده",
+"Disabled" => "غيرفعال سازي شده",
+"Save" => "ذخيره/به روز",
+"Status" => "وضعيت",
+"Result transaction" => "نتيجه تراکنش",
+"Configured successful" => "تنظيمات با موفقيت انجام شد",
+"Autentification" => "تصديق اعتبار",
+"Invalid file extension.- It must be pem" => "Invalid file extension.- It must be pem",
+"Message Remote SMTP Server" => "<p>The parameter 'Domain' specifies the default host to send mail. In the case of SMTP, specify a domain, host, [host] or [address]; the form [host] turns off MX lookups.<br /><br />
+            Domain = [gateway.my.domain]<br />
+            Domain = uucphost<br />
+            Domain = [an.ip.add.ress]</p>",
+"Message Remote Autentification" => "This option allows the authentication with certificates.",
+"Message Remote SMTP Cert" => "To enable the certificates option is neccesary to specify the required fields",
+"OTHER" => "موارد ديگر",
+"SMTP Server" => "SMTP Server",
+"Domain" => "دامنه",
+"TLS Enable" => "TLS Enable",
+"Ex" => "Ex",
+"Failed to connect to server" => "خطا در ارتباط با سرور",
+"Failed to send hello command" => "خطا در ارسال دستور اوليه",
+"Failed to start TLS" => "Failed to start TLS",
+"Authenticate not accepted from server" => "تصديق اعتبار از سوي سرور مقابل تاييد نشد",
+"Authenticate Error, TLS must be activated" => "Authenticate Error, TLS must be activated",
+);
+?>

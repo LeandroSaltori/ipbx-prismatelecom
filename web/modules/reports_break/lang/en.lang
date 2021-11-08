@@ -1,0 +1,34 @@
+<?php
+global $arrLangModule; 
+ $arrLangModule = array(
+'List Break'     => "Lista Pausa",
+'agent'          => "Agente",
+'break'          => "Tipo de Pausa",
+'time_init'      => "Hora Inicial",
+'time_end'       => "Hora Final",
+'duration'       => "Duração",
+"Name"           => "Nome",
+'Reports Break'  => "Relatório de Pausa - IPbx Prisma Telecom",
+'Agent Name'     => "Nome Agente",
+'Break'          => "Pausa",
+'query'          => "Filtrar",
+"Start Date"    => "Data Início",
+"End Date"      => "Data Final",
+'generate file'  => "Gerar Arquivo",
+'Agent Number'   => "Nº Agente",
+'Total'          => "Total Pausa",
+
+"Error"                                      => "Erro",
+"Warning"                                    => "Atenção",
+"Error when connecting to database"          => "Erro ao conectar-se ao banco de dados",
+"Error when creating object paloSantoReportsBreak" => "Erro ao criar relatorio de pausas",
+"Error cargando listado de tipos de breaks"  => "Erro ao carregar a lista de tipos de quebras",
+"Error cargando listado de agentes"          => "Erro ao carregar a lista de agentes",
+"Error cargando listado de breaks tomados"   => "Erro ao carregar a lista de quebras usadas",
+"Debe ingresar una fecha"                    => "Você deve inserir uma data",
+"Debe ingresar una fecha valida"             => "Você deve inserir uma data válida",
+"Validation Error"                           => "Erro Validação",
+"The following fields contain errors"        => "Os seguintes campos contêm erros",
+"No register break in database"              => "Sem registro de pausas no banco de dados",
+);
+?>

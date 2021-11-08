@@ -1,0 +1,68 @@
+<?php
+/*
+  vim: set expandtab tabstop=4 softtabstop=4 shiftwidth=4:
+  Codificación: UTF-8
+  +----------------------------------------------------------------------+
+  | Issabel version 2.0.0-15                                               |
+  | http://www.issabel.org                                               |
+  +----------------------------------------------------------------------+
+  | Copyright (c) 2006 Palosanto Solutions S. A.                         |
+  +----------------------------------------------------------------------+
+  | The contents of this file are subject to the General Public License  |
+  | (GPL) Version 2 (the "License"); you may not use this file except in |
+  | compliance with the License. You may obtain a copy of the License at |
+  | http://www.opensource.org/licenses/gpl-license.php                   |
+  |                                                                      |
+  | Software distributed under the License is distributed on an "AS IS"  |
+  | basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See  |
+  | the License for the specific language governing rights and           |
+  | limitations under the License.                                       |
+  +----------------------------------------------------------------------+
+  | The Original Code is: Issabel Open Source.                           |
+  | The Initial Developer of the Original Code is PaloSanto Solutions    |
+  +----------------------------------------------------------------------+
+  $Id: en.lang,v 1.1 2007/01/09 23:49:36 alex Exp $
+*/
+global $arrLangModule;
+$arrLangModule = array(
+"Installing/Updating" => "Instalar/Atualizar",
+"Transaction" => "Transaction",
+"Resolving dependencies" => "Resolvendo dependências",
+"Downloading package" => "Baixando Pacotes",
+"Installing package" => "Instalando pacotes",
+"Refreshing repos" => "Atualizar Repositórios",
+"Addon" => "Adicionar",
+"was successfully" => "foi com sucesso",
+"Uninstalling" => "Desinstalando",
+"Removing package" => "Removendo Pacotes",
+"has no problem with dependencies" => "não tem problemas com dependências",
+"Checking Dependencies" => "Verificando Dependências",
+"Sorry, you can not cancel the transaction on this stage" => "Desculpe, você não pode cancelar a transação neste estágio",
+"Cancelling. This process could take several minutes, please wait" => "Cancelando. Este processo pode demorar vários minutos, por favor aguarde",
+"The cancel signal was already sent, this could take several minutes, please wait" => "O cancelamento já foi enviado, isso pode levar vários minutos, aguarde",
+"Sorry, another transaction is already in process" => "Desculpe, outra transação já está em andamento",
+"No addons match your search criteria" => "Nenhum complemento corresponde aos seus critérios de pesquisa",
+"Filter by" => "Filtrar Por",
+"Available" => "Disponivel",
+"Installed" => "Instalado",
+"Purchased" => "Comprado",
+"Update Available" => "Atualização Disponível",
+"Name" => "Nome",
+"Showing" => "Pagina",
+"of" => "de",
+"by" => "por",
+"TRIAL" => "TRIAL",
+"BUY" => "COMPRAR",
+"INSTALL" => "INSTALAR",
+"UPDATE" => "ATUALIZAR",
+"UNINSTALL" => "REMOVER",
+"More info" => "Mais Info",
+"Addon Market" => "Addon Market",
+"Are you sure you want to cancel this transaction?" => "Tem certeza que deseja cancelar esta transação?",
+"Location" => "Localização",
+"Please wait..." => "Por favor, aguarde...",
+"Warning" => "Aviso",
+"Note" => "Nota",
+"Server id is not defined, you need to register your Issabel" => "ID do servidor não está definido, você precisa registrar seu Issabel",
+);
+?>

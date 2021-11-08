@@ -1,0 +1,68 @@
+<?php
+  /* vim: set expandtab tabstop=4 softtabstop=4 shiftwidth=4:
+  Codificación: UTF-8
+  +----------------------------------------------------------------------+
+  | Issabel version 4.0.0-31                                               |
+  | http://www.issabel.org                                               |
+  +----------------------------------------------------------------------+
+  | Copyright (c) 2006 Palosanto Solutions S. A.                         |
+  +----------------------------------------------------------------------+
+  | The contents of this file are subject to the General Public License  |
+  | (GPL) Version 2 (the "License"); you may not use this file except in |
+  | compliance with the License. You may obtain a copy of the License at |
+  | http://www.opensource.org/licenses/gpl-license.php                   |
+  |                                                                      |
+  | Software distributed under the License is distributed on an "AS IS"  |
+  | basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See  |
+  | the License for the specific language governing rights and           |
+  | limitations under the License.                                       |
+  +----------------------------------------------------------------------+
+  | The Initial Developer of the Original Code is PaloSanto Solutions    |
+  +----------------------------------------------------------------------+
+  $Id: en.lang,v 1.1 2010-08-09 10:08:51 Mercy Anchundia manchundia@palosanto.com Exp $ 
+  $Id: br.lang,v 1.0 2020/06/20 - Prisma Telecom Franca SP - leandro@prismatelecom.com $ */
+  
+  
+global $arrLangModule;
+$arrLangModule=array(
+"My Extension" => "Meu Ramal",
+"no_extension" => "Não há número de ramal associado ao usuário atual. Você pode associar um número de ramal ao seu usuário clicando em <a href=\"javascript: openWindow('index.php?menu=userlist&amp;action=edit_userExtension&amp;rawmode=yes');\">here</a>",
+"Call Waiting" => "Chamada em espera",
+"Do Not Disturb" => "Não Perturbe",
+"Error processing CallWaiting" => "Erro ao processar a chamada em espera",
+"Error processing Do Not Disturb" => "Erro ao processar não perturbe",
+"Save Configuration" => "Salvar Configuração",
+"Your configuration has been saved correctly" => "Sua configuração foi salva corretamente",
+"Call Forward" => "Desvio sempre / Siga-me",
+"Call Forward on Unavailable" => "Desvio ramal ou sem registro inativo",
+"Call Forward on Busy" => "Desvio se ocupado",
+"Configure a phone number here..." => "Para o numero ...",
+"Validation Error" => " Erro de Validação",
+"Please check your phone number"      => "Por favor, verifique seu número de telefone",
+"Please check your phone number for Call Forward" => "Por favor, verifique seu número de telefone para encaminhar chamadas",
+"Please check your phone number for Call Forward On Unavailable" => "Please check your phone number for Call Forward On Unavailable",
+"Please check your phone number for Call Forward On Busy" => "Verifique o seu número de telefone para encaminhar chamadas quando ocupado",
+"Always" => "Sempre",
+"Never"  => "Nunca",
+"On-Demand" => "Sob Demanda",
+"Inbound External Calls" => "Chamadas de entrada externas",
+"Outbound External Calls" => "Chamadas de saída externas",
+"Inbound Internal Calls" => "Chamadas de entrada internas",
+"Outbound Internal Calls" => "Chamadas de saída internas",
+"On Demand Recording" => "Gravação sob demanda",
+"Record Priority Policy" => "Política de prioridade de registro",
+"Don't Care" => "Não se aplica",
+"Disable" => "Desativado",
+"Enable" => "Ativado",    
+"SETTINGS FOR YOUR EXTENSION:" => "CONFIGURAÇÕES DO RAMAL:",
+"contact_admin" => "Não há número de ramal associado ao usuário atual. Entre em contato com o administrador para atribuir um ramal",
+"Inbound External Calls option is not valid" => "A opção Chamadas externas de entrada não é válida",
+"Outbound External Calls option is not valid" => "A opção Chamadas externas de saída não é válida",
+"Inbound Internal Calls option is not valid" => "A opção Chamadas internas de entrada não é válida",
+"Outbound Internal Calls option is not valid" => "A opção Chamadas internas de saída não é válida",
+"On Demand Recording  option is not valid" => "A opção de gravação sob demanda não é válida",
+"Record Priority Policy is not numeric" => "A política de prioridade de registro não é numérica",
+"Record Priority Policy must be a value between 0 and 20" => "A política de prioridade de registro deve ter um valor entre 0 e 20",
+"Error processing Recording options" => "Erro ao processar as opções de gravação"
+);
+?>

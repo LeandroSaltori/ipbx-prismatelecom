@@ -1,0 +1,14 @@
+<html>
+    <header>
+        <link rel="stylesheet" href="/themes/{$THEMENAME}/styles.css">
+        <link rel="stylesheet" href="/themes/{$THEMENAME}/help.css">
+    </header>
+    <body>
+        <h1>{$node_name}</h1>
+	<p>El módulo "Licenciar Addons" le permite registrar una licencia adquirida para un addon comercial Issabel</p>
+        <br />
+	<h2>Registrar Licencia</h2>
+	<p>Para registrar una licencia de addon, simplemente pulse el botón Registrar Licencia, complete el número de serie recibido al momento de la compra y pulse el botón Registrar</p>
+        <br />
+    </body>
+</html>

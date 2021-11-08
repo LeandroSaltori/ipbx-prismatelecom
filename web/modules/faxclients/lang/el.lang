@@ -1,0 +1,42 @@
+<?php
+/* vim: set expandtab tabstop=4 softtabstop=4 shiftwidth=4:
+  Codificación: UTF-8
+  +----------------------------------------------------------------------+
+  | Issabel version 1.0                                                  |
+  | http://www.issabel.org                                               |
+  +----------------------------------------------------------------------+
+  | Copyright (c) 2006 Palosanto Solutions S. A.                         |
+  +----------------------------------------------------------------------+
+  | The contents of this file are subject to the General Public License  |
+  | (GPL) Version 2 (the "License"); you may not use this file except in |
+  | compliance with the License. You may obtain a copy of the License at |
+  | http://www.opensource.org/licenses/gpl-license.php                   |
+  |                                                                      |
+  | Software distributed under the License is distributed on an "AS IS"  |
+  | basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See  |
+  | the License for the specific language governing rights and           |
+  | limitations under the License.                                       |
+  +----------------------------------------------------------------------+
+  | The Initial Developer of the Original Code is PaloSanto Solutions    |
+  |                                                                      |
+  | Translate by: Jason Papanayotou                                      |
+  | Email: jasonpap@gmail.com                                            |
+  |                                                                      |
+  +----------------------------------------------------------------------+
+  $Id: el.lang,v 1.6 2008/02/11 11:07:22 bmacias@palosanto.com Exp $ */
+global $arrLangModule;
+$arrLangModule=array(
+"Fax Clients" => "Εξουσιοδοτημένοι χρήστες FAX",
+"Clients allowed to send faxes" => "Clients allowed to send faxes",
+"No IP entered, you must keep at least the IP 127.0.0.1" => "Δεν πληκτρολογήσατε καμία IP. Πρέπει να υπάρχει τουλάχιστον η 127.0.0.1",
+"These IPs are allowed to send faxes through Issabel.  You must insert one IP per row.  We recommend keeping localhost and 127.0.0.1  in the configuration because some processes could need them." => "These IPs are allowed to send faxes through Issabel.<br>
+You must insert one IP per row.  We recommend keeping <br> localhost and 127.0.0.1 in the
+configuration because some <br> processes could need them.",
+"Could not read the clients configuration." => "Δεν είναι δυνατή η αναγνωση του αρχείου επιτρεπόμενων χρηστών.",
+"IP" => "Διεύθυνση Δικτύου",
+"Error" => "Error",
+"Message" => "Μήνυμα",
+"Configuration updated successfully" => "Configuration updated successfully",
+"Write error when writing the new configuration." => "Write error when writing the new configuration.",
+);
+?>

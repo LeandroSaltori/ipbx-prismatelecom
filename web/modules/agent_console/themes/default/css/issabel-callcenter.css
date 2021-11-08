@@ -1,0 +1,164 @@
+#issabel-callcenter-area-principal {
+    position: relative;
+    left: 0;
+    right: 0;
+    padding: 0;
+}
+
+#issabel-callcenter-titulo-consola {
+	position: relative;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 18pt;
+    padding: 0 0 0 0;
+}
+
+#issabel-callcenter-estado-agente {
+    position: relative;
+    left: 0;
+    width: 100%;
+    height: 1.3em;
+    padding: 0 0 0 0;
+    font-size: 1.3em;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+#issabel-callcenter-estado-agente-texto {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0;
+}
+
+#issabel-callcenter-cronometro {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0;
+}
+
+.issabel-callcenter-class-estado-ocioso {
+    background-color: #094895;
+}
+.issabel-callcenter-class-estado-esperando {
+    background-color: #75507b;
+}
+.issabel-callcenter-class-estado-activo {
+    background-color: #06640D;
+}
+.issabel-callcenter-class-estado-break {
+    background-color: #BD0000;
+}
+
+td.issabel-callcenter-class-estado-esperando,
+td.issabel-callcenter-class-estado-activo {
+    background-image: none;
+    color: #ffffff;
+}
+
+#issabel-callcenter-wrap {
+    position: relative;
+    height: 408pt;
+}
+
+#issabel-callcenter-controles {
+    position: absolute;
+    padding: 3pt;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: 22pt;
+    display: inline-block;
+}
+
+#issabel-callcenter-contenido {
+    position: absolute;
+    padding: 0;
+    height: 380pt;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 28pt;
+}
+
+#issabel-callcenter-cejillas-contenido {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0;
+    overflow: auto;
+}
+#issabel-callcenter-cejillas-contenido label {
+    font-weight: bold;
+}
+
+.issabel-callcenter-barra-llamada {
+    padding: 0;
+    display: inline-block;
+}
+
+.issabel-callcenter-boton-activo {
+/*
+    width: 95pt;
+    height: 30pt;
+*/
+}
+
+.issabel-callcenter-boton-break {
+/*
+    width: 95pt;
+    height: 30pt;
+    background-color:#094895;
+*/
+}
+.issabel-callcenter-boton-unbreak {
+/*
+    width: 95pt;
+    height: 30pt;
+    background-color:#BD0000;
+*/
+}
+
+#issabel-callcenter-llamada-paneles {
+    position: relative;
+    height: 32em;
+    padding: 0;
+}
+#issabel-callcenter-llamada-paneles > div {
+    position: relative;
+}
+#issabel-callcenter-llamada-paneles > div fieldset {
+    margin: 0;
+    padding-top: 1.25em;
+    padding-bottom: 0.5em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+#issabel-callcenter-llamada-paneles > div#issabel-callcenter-llamada-paneles-izq  > div
+{
+
+}
+
+#issabel-callcenter-llamada-paneles > div > fieldset,
+#issabel-callcenter-llamada-paneles > div#issabel-callcenter-llamada-paneles-izq  > div > fieldset{
+    overflow: auto;
+    position: absolute;
+    top: 0.25em;
+    bottom: 0.5em;
+    left: 0.5em;
+    right: 0.5em;
+}
+
+#issabel-callcenter-llamada-paneles > div > fieldset > div,
+#issabel-callcenter-llamada-paneles > div#issabel-callcenter-llamada-paneles-izq  > div > fieldset > div {
+    overflow: auto;
+    position: absolute;
+    top: 1.25em;
+    bottom: 0.5em;
+    left: 0.5em;
+    right: 0.5em;
+}

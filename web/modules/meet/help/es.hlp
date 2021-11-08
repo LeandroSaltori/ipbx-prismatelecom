@@ -1,0 +1,12 @@
+<html>
+<header>
+  <link rel="stylesheet" href="/themes/{$THEMENAME}/styles.css">
+  <link rel="stylesheet" href="/themes/{$THEMENAME}/help.css">
+</header>
+<body>
+<h1>{$node_name}</h1>
+
+<p>Issabel Meet le permite iniciar una video conferencia directamente desde su navegador</p>
+
+</body>
+</html>
