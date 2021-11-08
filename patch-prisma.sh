@@ -27,6 +27,8 @@ echo ""
 yum -y update && yum -y upgrade
 clear
 echo ""
+echo "Instalando OpenVPN"
+yum install issabel-easyvpn -y
 echo ""
 echo "Instalando  subversion"
 yum -y install subversion
