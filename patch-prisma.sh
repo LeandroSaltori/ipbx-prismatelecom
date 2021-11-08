@@ -22,11 +22,23 @@ echo ""
 yum install wget tcpdump -y
 updatedb
 echo ""
+echo "Instalando sngrep"
+echo "" 
+rm -Rf /etc/yum.repos.d/irontec.repo
+cat > /etc/yum.repos.d/irontec.repo <<EOF
+[irontec]
+name=Irontec RPMs repository
+baseurl=http://packages.irontec.com/centos/\$releasever/\$basearch/
+EOF
+rpm --import http://packages.irontec.com/public.key
+yum install sngrep -y
+echo ""
 echo "Atualizando o sistema..."
 echo ""
 yum -y update && yum -y upgrade
 clear
 echo ""
+
 echo "Instalando OpenVPN"
 yum install issabel-easyvpn -y
 echo ""
