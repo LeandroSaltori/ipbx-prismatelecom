@@ -25,6 +25,18 @@ echo "Atualizando o sistema..."
 echo ""
 yum -y update && yum -y upgrade
 clear
+echo ""
+echo ""
+yum install subversion
+echo ""
+echo "Baixando o Favicon.."
+echo "
+wget -c -P /var/www/html  https://github.com/LeandroSaltori/ipbx-prismatelecom/blob/main/web/favicon.ico
+echo "
+echo "Baixando o tema Prisma Telecom..."
+echo "
+svn co https://github.com/LeandroSaltori/ipbx-prismatelecom/trunk/web/themes /var/www/html/themes
+echo ""
 echo "||||||||| ||||||||| |||  ||||||||  ||\\    //|||  ||||||||||"
 echo "|||   ||| |||   |||      |||       |||\\  // |||  |||    |||"
 echo "||||||||| ||||||||| |||  ||||||||  ||| \\//  |||  ||||||||||"
