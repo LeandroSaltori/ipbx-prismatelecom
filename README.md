@@ -53,7 +53,7 @@ Link Download: [https://sourceforge.net/projects/issabelpbx/files/Issabel%204/is
       - Necessario instalar para portugues: (O Patch Prisma já executa essa instalação deste pacote)
         - yum -y install docker-repo
         - yum -y install vosk-server-pt
-        - OBS: "spoken" - A letra deve ser minúscolo.
+        - OBS: "spoken" - A letra deve ser minúsculo.
     - Atualização de Gerenciamento de Firewall e GeoIP
       
 
