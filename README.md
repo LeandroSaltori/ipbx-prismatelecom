@@ -16,15 +16,13 @@ Este é um patch e arquivos para instalação de Issabel Linux personalizada pel
       - Instalação do subversion
       - Alteração do Favicon.ico
       - Downlod de Tema Prisma Telecom
-      - Download das Pastas LANG e MODULES atualizadas
-      
+      - Download das Pastas LANG e MODULES atualizadas      
  
 ## Outras Informações ##
   - CentOS 7
   - Asterisk 16
 
 ```
->>>>>>> e76be82b670404c8e712d287f1630edd061b7fff
 wget -O - https://github.com/LeandroSaltori/ipbx-prismatelecom/raw/main/patch-prisma.sh| bash
 ```
 
