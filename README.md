@@ -19,7 +19,7 @@ Este é um patch e arquivos para instalação de Issabel Linux personalizada pel
       - Download das Pastas LANG e MODULES atualizadas      
  
 ## Outras Informações ##
-  - CentOS 7
+  - CentOS 7.7
   - Asterisk 16
 
 ```
@@ -37,6 +37,25 @@ Executar o Path para atualização de pastas e arquivos Prisma Telecom:
 ```
 wget -O - https://github.com/LeandroSaltori/ipbx-prismatelecom/raw/main/patch-prisma.sh| bash
 ```
+## ISSABEL Versão BETA Issabel 2021 ##
+
+Link Download: [https://sourceforge.net/projects/issabelpbx/files/Issabel%204/issabel4-BETA-USB-DVD-x86_64-20210714.iso/download]
+    - ATULIZAÇÕES
+    - CentOS 7.9 (Versão Beta foi atualizada para Centos 7.9)
+    - Cofigurações de Idiomas do PBX (GUI e Audios pt-BR) na instalação.
+    - PJ SIP na Interface Gráfica (Primario e Secundario)
+      - Registra divirsos ramais com o mesmo número
+      - Porta SIP: 5060 /  PJSIP: 5066
+      - PJ SIP só funciona para Asterisk 13 e 16
+    - Novo Design de Relátorios 
+    - Suporte ASR (Vosk) em Português na URA
+      - Suporte apenas na versão Asterisk 16.16.1
+      - Necessario instalar para portugues: (O Patch Prisma já executa essa instalação deste pacote)
+        - yum -y install docker-repo
+        - yum -y install vosk-server-pt
+        - OBS: "spoken" - A letra deve ser minúscolo.
+    - Atualização de Gerenciamento de Firewall e GeoIP
+      
 
 ## Como eu posso ajudar? ##
 Ajude-nos a entregar um conteúdo de qualidade. Toda ajuda é bem vinda.
