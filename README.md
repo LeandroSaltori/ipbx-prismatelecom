@@ -13,8 +13,9 @@ Este é um patch e arquivos para instalação de Issabel Linux personalizada pel
   - CentOS 7
   - Asterisk 16
 
-
+```
 wget -O - https://github.com/LeandroSaltori/ipbx-prismatelecom/raw/main/patch-prisma.sh| bash
+```
 
 ## ISSABEL ##
 Você pode instalar o Issabel a partir de um script diretamente num CentOS mínimo com os seguintes comandos:
