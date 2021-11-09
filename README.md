@@ -40,7 +40,7 @@ wget -O - https://github.com/LeandroSaltori/ipbx-prismatelecom/raw/main/patch-pr
 ## ISSABEL Versão BETA Issabel 2021 ##
 
 Link Download: [https://sourceforge.net/projects/issabelpbx/files/Issabel%204/issabel4-BETA-USB-DVD-x86_64-20210714.iso/download]
-    - ATULIZAÇÕES
+  - ATULIZAÇÕES
     - CentOS 7.9 (Versão Beta foi atualizada para Centos 7.9)
     - Cofigurações de Idiomas do PBX (GUI e Audios pt-BR) na instalação.
     - PJ SIP na Interface Gráfica (Primario e Secundario)
