@@ -97,7 +97,8 @@ var baseurl = '';
 				<div class="form-group">
 					<button type="submit" class="btn btn-primary btn-block btn-login" name="submit_login">
 						<i class="entypo-login"></i>
-						{$SUBMIT}
+						Entrar
+						<!--{$SUBMIT} REMOVE-->
 					</button>
 				</div>
 
