@@ -19,7 +19,7 @@
   +----------------------------------------------------------------------+
   | The Initial Developer of the Original Code is PaloSanto Solutions    |
   +----------------------------------------------------------------------+
-  $Id: br.lang,v 1.0 2020/05/23 10:00:00 Prisma Telecom - Franca SP - leandro@prismatelecom.com $ */
+  $Id: index.php,v 1.1 2009-01-06 09:01:38 bmacias bmacias@palosanto.com Exp $ */
 //include issabel framework
 include_once "libs/paloSantoGrid.class.php";
 include_once "libs/paloSantoForm.class.php";
@@ -209,7 +209,7 @@ function reportReportCall($smarty, $module_name, $local_templates_dir, &$pDB_cdr
     if($_POST['date_to']==="")
         $_POST['date_to']  = " ";
 
-    $oGrid->addFilterControl(_tr("Filter applied: ")._tr("Data Inicial")." = ".$date_from.", "._tr("Data Final")." = ".
+    $oGrid->addFilterControl(_tr("Filter applied: ")._tr("Start Date")." = ".$date_from.", "._tr("End Date")." = ".
     $date_to, $_POST, array("date_from" => date("d M Y"),"date_to" => date("d M Y")),true);
 
     $valueType = "";

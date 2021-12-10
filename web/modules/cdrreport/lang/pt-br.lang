@@ -19,8 +19,7 @@
   +----------------------------------------------------------------------+
   | The Initial Developer of the Original Code is PaloSanto Solutions    |
   +----------------------------------------------------------------------+
-$Id: br.lang,v 1.0 2020/05/23 10:00:00 Prisma Telecom Franca SP - leandro@prismatelecom.com $ */
-
+  $Id: es.lang,v 1.7 2007/09/05 00:36:42 alex Exp $ */
 global $arrLangModule;
 $arrLangModule = array(
     "Start Date" => "Data Início",
@@ -35,7 +34,7 @@ $arrLangModule = array(
     "Dst. Channel" => "Canal Destino",
     "Duration" => "Duração",
     "Filter" => "Filtro",
-    "Are you sure you wish to delete CDR(s) Report(s)?" => "Tem certeza de que deseja excluir o relatório(s) exibido(s)?",
-    "Delete" => "Exclua os relatórios exibidos",
+    "Are you sure you wish to delete CDR(s) Report(s)?" => "Are you sure you wish to delete the selected CDR(s)?",
+    "Delete" => "Delete the selected CDR(s)",
 );
 ?>

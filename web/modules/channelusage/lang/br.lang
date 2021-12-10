@@ -19,7 +19,8 @@
   +----------------------------------------------------------------------+
   | The Initial Developer of the Original Code is PaloSanto Solutions    |
   +----------------------------------------------------------------------+
-  $Id: es.lang,v 1.7 2007/09/05 00:36:42 alex Exp $ */
+  $Id: es.lang,v 1.7 2007/09/05 00:36:42 alex Exp $ 
+  $Id: br.lang,v 1.8 2021/12/10 00:36:42 LeandroSaltori Exp $ */
 global $arrLangModule;
 $arrLangModule = array(
     "Simultaneous Channels (Total)" => "Canais Simultâneos (Total)",
@@ -34,6 +35,6 @@ $arrLangModule = array(
     "IAX Channels" => "Canais IAX",
     "H323 Channels" => "Canais H323",
     "Local Channels" => "Canais Local",
-	"Nothing to show yet" => "Nada para mostrar"
+	"Nothing to show yet" => "Nada para mostrar ainda"
 );
 ?>

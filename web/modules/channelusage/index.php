@@ -5,7 +5,7 @@
   | Issabel version 0.5                                                  |
   | http://www.issabel.org                                               |
   +----------------------------------------------------------------------+
-  | Copyright (c) 2006 Palosanto Solutions S. A.                         |
+  | Copyright (c) 2021 Issabel Foundation                                |
   +----------------------------------------------------------------------+
   | The contents of this file are subject to the General Public License  |
   | (GPL) Version 2 (the "License"); you may not use this file except in |
@@ -19,14 +19,35 @@
   +----------------------------------------------------------------------+
   | The Initial Developer of the Original Code is PaloSanto Solutions    |
   +----------------------------------------------------------------------+
-  $Id: index.php,v 1.1.1.1 2007/07/06 21:31:21 gcarrillo Exp $ */
+  $Id: index.php, Thu 13 May 2021 06:40:42 PM EDT, nicolas@issabel.com
+*/
 
 include_once "libs/paloSantoGraphImage.lib.php";
 
-function _moduleContent(&$smarty, $module_name)
-{
+function _moduleContent(&$smarty, $module_name) {
+
+    function getData($id, $getTime=0) {
+        $chUsage = new paloSantoChannelUsage;
+        $hours = array();
+        $channels = array();
+        $data = $chUsage->channelsUsage($id);
+        $times = $data['DATA']['DAT_1']['VALUES'];
+        foreach ($times as $index => $value) {
+            //echo $index.' - '.$value.'</br>';
+            //echo date('d-M H:m:s',$value). '</br>';
+            array_push($hours,$index*1000);
+            array_push($channels,$value);
+        }
+        if ($getTime==1) {
+           return $hours;
+        } else {
+           return $channels;
+        }
+    }
+
     //include module files
     include_once "modules/$module_name/configs/default.conf.php";
+    include_once "modules/$module_name/libs/paloSantoChannelUsage.class.php";
 
     load_language_module($module_name);
 
@@ -35,7 +56,6 @@ function _moduleContent(&$smarty, $module_name)
     global $arrConfModule;
     $arrConf = array_merge($arrConf,$arrConfModule);
 
-
     //folder path for custom templates
     $base_dir=dirname($_SERVER['SCRIPT_FILENAME']);
     $templates_dir=(isset($arrConf['templates_dir']))?$arrConf['templates_dir']:'themes';
@@ -43,23 +63,26 @@ function _moduleContent(&$smarty, $module_name)
 
     $smarty->assign("title",_tr("Channels Usage Report"));
     $smarty->assign("icon","modules/$module_name/images/reports_channel_usage.png");
-
-    if (isset($_GET['image'])) {
-        $_GET['image'] = (int)$_GET['image'];
-        displayGraph($module_name, "paloSantoChannelUsage", "channelsUsage",array($_GET['image']),"functionCallback");
-    } else {
-        $listaGraficos = array(
-            'img_1' =>  2,
-            'img_2' =>  3,
-            'img_3' =>  4,
-            'img_4' =>  5,
-            'img_5' =>  6,
-            'img_6' =>  7,
-        );
-        foreach (array_keys($listaGraficos) as $k)
-            $listaGraficos[$k] = "<img alt=\"{$listaGraficos[$k]}\" src=\"?menu=$module_name&amp;image={$listaGraficos[$k]}&rawmode=yes\" />";
-        $smarty->assign($listaGraficos);
-        return $smarty->fetch("$local_templates_dir/channelusage.tpl");
+    if (date_default_timezone_get()) {
+       $timezone = date_default_timezone_get();
     }
+    $chUsage = new paloSantoChannelUsage;
+    //2 - total 3 - dahdi 4 - SIP 5 - IAX 6 - H323 7 - Local
+    $arrHours = getData(2,1);
+    $arrTotal = getData(2);
+    $arrDahdi = getData(3);
+    $arrSIP   = getData(4);
+    $arrIAX   = getData(5);
+    $arrH323  = getData(6);
+    $arrLocal = getData(7);
+    $smarty->assign("timezone", $timezone);
+    $smarty->assign("hoursJSON", json_encode($arrHours));
+    $smarty->assign("totalJSON", json_encode($arrTotal));
+    $smarty->assign("dahdiJSON", json_encode($arrDahdi));
+    $smarty->assign("sipJSON",   json_encode($arrSIP));
+    $smarty->assign("iaxJSON",   json_encode($arrIAX));
+    $smarty->assign("h323JSON",  json_encode($arrH323));
+    $smarty->assign("localJSON", json_encode($arrLocal));
+    return $smarty->fetch("$local_templates_dir/charts.tpl");
 }
 ?>

@@ -24,13 +24,13 @@
 global $arrLangModule;
 $arrLangModule=array(
 "Missed Calls" => "Ligações Perdidas",
-"Date" => "Data / Hora ",
+"Date" => "Data",
 "Source" => "Origem",
 "Start Date" => "Inicio",
 "End Date" => "Fim",
 "Destination" => "Destino",
-"Time since last call" => "Tempo Desde a Última Chamada",
-"Number of attempts" => "Numero de Toques",
+"Time since last call" => "Tempo desde a última ligação",
+"Number of attempts" => "Numero de tentativas",
 "year(s)" => "ano(s)",
 "month(s)" => "mês(es)",
 "day(s)" => "dia(s)",

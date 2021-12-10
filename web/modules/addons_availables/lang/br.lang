@@ -63,6 +63,6 @@ $arrLangModule = array(
 "Please wait..." => "Por favor, aguarde...",
 "Warning" => "Aviso",
 "Note" => "Nota",
-"Server id is not defined, you need to register your Issabel" => "ID do servidor não está definido, você precisa registrar seu Issabel",
+"Server id is not defined, you need to register your Issabel" => "ID do servidor não está definido, você precisa registrar seu IPbx",
 );
 ?>
