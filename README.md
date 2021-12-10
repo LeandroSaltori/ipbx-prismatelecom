@@ -35,7 +35,7 @@ sudo wget -O - http://repo.issabel.org/issabel4-netinstall.sh | bash
 Observações: Requer yum install -y wget
 
 yum update
-yum -y install wgetyum
+yum -y install wget
 
 Executar o Path para atualização de pastas e arquivos Prisma Telecom:
 ```
