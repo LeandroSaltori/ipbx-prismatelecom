@@ -57,7 +57,7 @@ echo "Baixando o tema Prisma Telecom..."
 echo ""
 svn co https://github.com/LeandroSaltori/ipbx-prismatelecom/trunk/web/themes /var/www/html/themes
 echo ""
-echo "Renomeando as pastas 'lang' e modules'"
+echo "Renomeando as pastas 'lang' e modules para _old'"
 cd /var/www/html/ 
 mv lang lang_old
 mv modules modules_old
