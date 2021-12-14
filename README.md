@@ -62,15 +62,15 @@ Link Download: [https://sourceforge.net/projects/issabelpbx/files/Issabel%204/is
       
 ## Ajustes Tempo de Transferencia de Chamadas ##
 
-/etc/asterisk/features_general_custom.conf
+  /etc/asterisk/features_general_custom.conf
 
-e adicione as linhas:
+  e adicione as linhas:
 
-transferdigittimeout=6
-featuredigittimeout=3000
+  transferdigittimeout=6
+  featuredigittimeout=3000
 
-transferdigittimeout - Determina o número de segundos que o sistema aguarda o usuário digitar o número de destino numa transferência
-featuredigittimeout  - Determina o tempo máximo, em milisegundos, que o usuário tem de tempo para digitar entre um dígito e o outro. 
+  transferdigittimeout - Determina o número de segundos que o sistema aguarda o usuário digitar o número de destino numa transferência
+  featuredigittimeout  - Determina o tempo máximo, em milisegundos, que o usuário tem de tempo para digitar entre um dígito e o outro. 
 
 ## Como eu posso ajudar? ##
 Ajude-nos a entregar um conteúdo de qualidade. Toda ajuda é bem vinda.
