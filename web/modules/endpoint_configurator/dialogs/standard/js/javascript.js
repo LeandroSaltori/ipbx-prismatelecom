@@ -317,6 +317,7 @@ endpointConfigDlgInit['standard'] = function() {
 			// Preguntar según la tecnología el máximo de cuentas
 			var querypath = null;
 			if (account.get('tech') == 'sip') querypath = 'details.max_sip_accounts';
+			if (account.get('tech') == 'pjsip') querypath = 'details.max_sip_accounts';
 			if (account.get('tech') == 'iax2') querypath = 'details.max_iax2_accounts';
 			if (querypath == null) {
 				//console.error('BUG: account has unimplemented tech');

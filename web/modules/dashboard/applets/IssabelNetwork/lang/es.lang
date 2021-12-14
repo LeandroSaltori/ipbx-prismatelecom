@@ -1,0 +1,11 @@
+<?php
+global $arrLangModule;
+$arrLangModule = array(
+    "Inactive" => "Inactivo",
+    "Not installed" => "No instalado",
+    "Disabled" => "Deshabilitado",
+    "Enabled" => "Habilitado",
+    "Down" => "Servicio Caído",
+    "Remote Administration" => "Administración remota",
+);
+?>

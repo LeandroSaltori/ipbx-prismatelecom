@@ -26,12 +26,12 @@
   $Id: br.lang,v 1.6 2007/09/05 00:36:42 gcarrillo Exp $ */
 global $arrLangModule;
 $arrLangModule=array(
-"Description"=>"Descrição",
-"New Group"=>"Novo Grupo",
-"Create New Group"=>"Criar Novo Grupo",
-"View Group"=>"Vizualizar Grupo",
-"Edit Group"=>"Editar Grupo",
-"The Group have users assigned. You can delete any group that does not have any users assigned in it."=>"O Grupo tem usuários atribuídos. Você pode excluir qualquer grupo que não tenha nenhum usuário atribuído a ele.",
-"The administrator group cannot be deleted because is the default Issabel Group. You can delete any other group."=>"O grupo de administradores não pode ser excluído porque é o Grupo IPbx padrão. Você pode excluir qualquer outro grupo.",
+"Description"=>"Description",
+"New Group"=>"New Group",
+"Create New Group"=>"Create New Group",
+"View Group"=>"View Group",
+"Edit Group"=>"Edit Group",
+"The Group have users assigned. You can delete any group that does not have any users assigned in it."=>"The Group have users assigned. You can delete any group that does not have any users assigned in it.",
+"The administrator group cannot be deleted because is the default Issabel Group. You can delete any other group."=>"The administrator group cannot be deleted because is the default Issabel Group. You can delete any other group.",
 );
 ?>

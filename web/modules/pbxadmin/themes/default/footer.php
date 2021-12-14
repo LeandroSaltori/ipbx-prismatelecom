@@ -7,6 +7,7 @@ global $reload_needed;
 global $remove_rnav;
 global $js_content;
 
+set_language();
 $version     = get_framework_version();
 $version_tag = '?load_version=' . urlencode($version);
 
@@ -81,6 +82,10 @@ $ipbx['msg']['framework']['validateSingleDestination']['required'] = _('Please s
 $ipbx['msg']['framework']['validateSingleDestination']['error'] = _('Custom Goto contexts must contain the string "custom-".  ie: custom-app,s,1');
 $ipbx['msg']['framework']['weakSecret']['length'] = _("The secret must be at minimum six characters in length.");
 $ipbx['msg']['framework']['weakSecret']['types'] = _("The secret must contain at least two numbers and two letters.");
+$ipbx['msg']['framework']['add'] = _("Add");
+$ipbx['msg']['framework']['reloading'] = _("Reloading...");
+$ipbx['msg']['framework']['pleasewait'] = _("Please Wait");
+
 
 $html .= "\n" . '<script type="text/javascript">'
 		. 'var ipbx='
@@ -92,6 +97,11 @@ $html .= "\n" . '<script type="text/javascript">'
 
 		. ';$(document).click();' //TODO: this should be cleaned up eventually as right now it prevents the nav bar from not being fully displayed
  		. '</script>';
+
+if (file_exists("/var/www/html/admin/assets/js/chosen.jquery.js")) {
+    $html .= '<script type="text/javascript" src="admin/assets/js/chosen.jquery.js"></script>';
+    $html .= '<link rel="stylesheet" href="admin/assets/css/chosen.css" type="text/css">';
+}
 
 // Production versions should include the packed consolidated javascript library but if it
 // is not present (useful for development, then include each individual library below

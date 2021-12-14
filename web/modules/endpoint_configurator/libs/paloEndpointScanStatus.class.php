@@ -481,7 +481,7 @@ SQL_LEER_ENDPOINTS;
         if (!$astman->connect('localhost', 'admin', obtenerClaveAMIAdmin()))
             return NULL;
         $cuentasRegistradas = array();
-        
+
         $r = $astman->Command('sip show peers');
         if ($r['Response'] != 'Error') {
             foreach (explode("\n", $r['data']) as $s) {
@@ -491,12 +491,12 @@ SQL_LEER_ENDPOINTS;
                     $ip = $l[1];
                     $extArray = explode('/', $l[0]);
                     if (!isset($cuentasRegistradas[$ip]))
-                        $cuentasRegistradas[$ip] = array('sip' => array(), 'iax2' => array());
-                    $cuentasRegistradas[$ip]['sip'][] = $extArray[0];
+                        $cuentasRegistradas[$ip] = array('sip' => array(), 'iax2' => array(), 'pjsip' => array());
+                    $cuentasRegistradas['sip'][$extArray[0]] = $ip;
                 }
             }
         }
-        
+
         $r = $astman->Command('iax2 show peers');
         if ($r['Response'] != 'Error') {
             foreach (explode("\n", $r['data']) as $s) {
@@ -505,11 +505,25 @@ SQL_LEER_ENDPOINTS;
                 if (count($l) > 5 && preg_match('/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}/', $l[1]) && $l[5] == 'OK') {
                     $ip = $l[1];
                     if (!isset($cuentasRegistradas[$ip]))
-                        $cuentasRegistradas[$ip] = array('sip' => array(), 'iax2' => array());
-                    $cuentasRegistradas[$ip]['iax2'][] = $l[0];
+                        $cuentasRegistradas[$ip] = array('sip' => array(), 'iax2' => array(), 'pjsip' => array());
+                    $cuentasRegistradas['iax2'][$l[0]] = $ip;
                 }
             }
         }
+
+        $r = $astman->Command('pjsip show endpoints');
+        if ($r['Response'] != 'Error') {
+            foreach (explode("\n", $r['data']) as $s) {
+                $l = preg_split('/\s+/', $s);
+                if (count($l) > 4 && $l[0]=='Contact:' && $l[3]=='Avail') {
+                    $m = preg_match("/(\d+)\/sip:(\d+)@([^:]+)/",$l[1],$matches);
+                    $ip = $matches[3];
+                    if (!isset($cuentasRegistradas[$ip]))
+                        $cuentasRegistradas[$ip] = array('sip' => array(), 'iax2' => array(), 'pjsip' => array());
+                    $cuentasRegistradas['pjsip'][$matches[1]] = $ip;
+                }
+            }
+        }        
         
         $astman->disconnect();
         return $cuentasRegistradas;

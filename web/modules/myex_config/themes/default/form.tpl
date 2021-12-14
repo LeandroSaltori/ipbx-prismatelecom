@@ -1,4 +1,4 @@
-<table width="100%" border="0" cellspacing="0" cellpadding="4" align="center">
+<table width="99%" border="0" cellspacing="0" cellpadding="4" align="center">
     <tr class="letra12">
         {if $mode eq 'input'}
         <td align="left">
@@ -8,9 +8,10 @@
         {/if}
     </tr>
 </table>
-<table class="tabForm" style="font-size: 16px;" width="100%" >
+<table class="tabForm" style="font-size: 16px;" width="99%" >
+    <tbody>
     <tr class="letra12">
-        <td  align="left" colspan=2;><br /><b style ="color:#E35332; font-weigth:bold;font-size:15px;">{$EXTENSION}</b><br /><br /></td>
+        <td  align="left" colspan=2;><legend>{$EXTENSION}</legend></td>
     </tr>
     <tr class="letra12">
         <td align="left" width="300px"><b>{$do_not_disturb.LABEL}:</b></td>
@@ -21,7 +22,7 @@
         <td align="left">{$call_waiting.INPUT}</td>
     </tr>
     <tr class="letra12">
-        <td align="left"><b class='form-label-style'>{$TAG_CALL_FORW_CONF}</b></td>
+        <td align="left" colspan=2><legend>{$TAG_CALL_FORW_CONF}</legend></td>
     </tr>
     <tr class="letra12">
         <td align="left"><b>{$call_forward.LABEL}:</b></td>
@@ -36,7 +37,7 @@
         <td align="left">{$call_forward_B.INPUT} {$phone_number_CFB.INPUT}</td>
     </tr>
     <tr class="letra12">
-        <td align="left"><b class='form-label-style'>{$TAG_CALL_MON_SET}</b></td>
+        <td align="left" colspan=2><legend>{$TAG_CALL_MON_SET}</legend></td>
     </tr>
     <tr class="letra12">
         <td align="left"><b>{$recording_in_external.LABEL}:</b></td>
@@ -67,5 +68,7 @@
                 {$recording_priority.INPUT}
             </div>    
         </td>
-    </tr> 
+    </tr>
+    <tr><td colspan=2></td></tr>
+    </tbody> 
 </table>

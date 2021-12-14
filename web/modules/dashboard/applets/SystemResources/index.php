@@ -19,7 +19,7 @@
   +----------------------------------------------------------------------+
   | The Initial Developer of the Original Code is PaloSanto Solutions    |
   +----------------------------------------------------------------------+
-  $Id: index.php,v 1.1 2007/01/09 23:49:36 alex Exp $
+  $Id: index.php, Thu 13 May 2021 06:13:41 PM EDT, nicolas@issabel.com
 */
 require_once "libs/paloSantoGraphImage.lib.php";
 
@@ -41,6 +41,32 @@ class Applet_SystemResources
             'LABEL_CPUSPEED'    =>  _tr('CPU Speed'),
             'LABEL_MEMORYUSE'   =>  _tr('Memory usage'),
         ));
+
+        $lastdata = `grep -h "Web Interface login successful" $(ls -rt /var/log/issabel/audit.log*) | tail -n 2 | head -n 1 | awk '{print $1" "$2" "$3","$15}'`;
+        if(trim($lastdata)=='') {
+            $lastlogin = _tr('No last login info');
+        } else {
+            $lastdata = str_replace(array('[',']'),'',$lastdata);
+            $partes = preg_split("/,/",$lastdata);
+            $ll = get_language();
+            if($ll=="br" || $ll=="pt-br") {
+                $lllocale = "pt_BR";
+            } else if($ll=="fa") {
+                $lllocale = "fa_IR";
+            } else {
+                $lllocale = $ll."_".strtoupper($ll);
+            }
+            setlocale(LC_TIME, $lllocale);
+            $fecha = strftime("%c",strtotime($partes[0]));
+            $current_encoding = mb_detect_encoding($fecha,'UTF-8, ISO-8859-1, ISO-8859-2');
+            if($current_encoding<>'UTF-8') {
+                $fecha = mb_convert_encoding($fecha,'UTF-8',$current_encoding);
+            }
+            $lastlogin   = sprintf(_tr('Last login: %s from %s'),$fecha,$partes[1]);
+
+
+            $lastlogin   = sprintf(_tr('Last login: %s from %s'),$fecha,$partes[1]);
+        }
 
         $status = $this->_recolectarCargaSistema($module_name);
 
@@ -72,6 +98,7 @@ class Applet_SystemResources
             'speed'         =>  $speed,
             'memtotal'      =>  $inf2,
             'swaptotal'     =>  $inf3,
+            'lastlogin'     =>  $lastlogin,
         ));
         $smarty->assign($this->_formatGauges($status['cpugauge'], $status['memgauge'], $status['swapgauge']));
         $local_templates_dir = dirname($_SERVER['SCRIPT_FILENAME'])."/modules/$module_name/applets/SystemResources/tpl";
@@ -116,8 +143,12 @@ class Applet_SystemResources
         );
 
         $meminfo = $this->getMemInfo();
-        $fraction_mem_used = ($meminfo['MemTotal'] - $meminfo['MemFree'] - $meminfo['Cached'] - $meminfo['MemBuffers']) / $meminfo['MemTotal'];
-        $fraction_swap_used = ($meminfo['SwapTotal'] - $meminfo['SwapFree']) / $meminfo['SwapTotal'];
+        $fraction_mem_used = ($meminfo['MemTotal'] - $meminfo['MemFree'] - $meminfo['Cached'] - $meminfo['SReclaimable'] - $meminfo['Buffers']) / $meminfo['MemTotal'];
+        if($meminfo['SwapTotal']==0) {
+            $fraction_swap_used = 0;
+        } else {
+            $fraction_swap_used = ($meminfo['SwapTotal'] - $meminfo['SwapFree']) / $meminfo['SwapTotal'];
+        }
 
         return array(
             'cpugauge'  =>  $fraction_cpu_used,
@@ -157,10 +188,11 @@ class Applet_SystemResources
         $arrInfo = array(
             'MemTotal'      =>  0,
             'MemFree'       =>  0,
-            'MemBuffers'    =>  0,
+            'Buffers'       =>  0,
             'SwapTotal'     =>  0,
             'SwapFree'      =>  0,
             'Cached'        =>  0,
+            'SReclaimable'  =>  0,
         );
         foreach (file('/proc/meminfo') as $linea) {
             $regs = NULL;

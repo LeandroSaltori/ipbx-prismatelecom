@@ -2,9 +2,10 @@
   /* vim: set expandtab tabstop=4 softtabstop=4 shiftwidth=4:
   Codificación: UTF-8
   +----------------------------------------------------------------------+
-  | Issabel version 4.0.0-12                                               |
+  | Issabel version 4.0                                                  |
   | http://www.issabel.org                                               |
   +----------------------------------------------------------------------+
+  | Copyright (c) 2021 Issabel Foundation                                |
   | Copyright (c) 2006 Palosanto Solutions S. A.                         |
   +----------------------------------------------------------------------+
   | The contents of this file are subject to the General Public License  |
@@ -19,12 +20,13 @@
   +----------------------------------------------------------------------+
   | The Initial Developer of the Original Code is PaloSanto Solutions    |
   +----------------------------------------------------------------------+
-  $Id: paloSantoBillingRates.class.php,v 1.1 2010-01-27 02:01:42 Eduardo Cueva ecueva@palosanto.com Exp $ */
+  $Id: paloSantoBillingRates.class.php, Fri 09 Jul 2021 06:08:25 PM EDT, nicolas@issabel.com
+*/
 class paloSantoBillingRates {
     var $_DB;
     var $errMsg;
 
-    function paloSantoBillingRates(&$pDB)
+    function __construct(&$pDB)
     {
         // Se recibe como parámetro una referencia a una conexión paloDB
         if (is_object($pDB)) {
@@ -127,7 +129,7 @@ class paloSantoBillingRates {
 	 function getTrunks($db){
 
 		$query = "SELECT trunk FROM trunk_bill";
-		$result2 = "";
+		$result2 = array();
         $result=$db->fetchTable($query, true);
         if($result==FALSE){
             $this->errMsg = $db->errMsg;
@@ -242,7 +244,7 @@ class paloSantoBillingRates {
 
 	 function getDefaultRates($db){
 		$query = "SELECT * FROM settings";
-		$sal = "";
+		$sal = array();
         $result=$db->fetchTable($query, true);
         if($result==FALSE){
             $this->errMsg = $db->errMsg;

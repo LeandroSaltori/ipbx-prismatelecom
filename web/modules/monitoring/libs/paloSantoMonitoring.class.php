@@ -2,9 +2,10 @@
   /* vim: set expandtab tabstop=4 softtabstop=4 shiftwidth=4:
   Codificación: UTF-8
   +----------------------------------------------------------------------+
-  | Issabel version 4.0.0-18                                               |
+  | Issabel version 4.0                                                  |
   | http://www.issabel.org                                               |
   +----------------------------------------------------------------------+
+  | Copyright (c) 2021 Issabel Foundation                                |
   | Copyright (c) 2006 Palosanto Solutions S. A.                         |
   +----------------------------------------------------------------------+
   | The contents of this file are subject to the General Public License  |
@@ -19,7 +20,8 @@
   +----------------------------------------------------------------------+
   | The Initial Developer of the Original Code is PaloSanto Solutions    |
   +----------------------------------------------------------------------+
-  $Id: paloSantoMonitoring.class.php,v 1.1 2010-03-22 05:03:48 Eduardo Cueva ecueva@palosanto.com Exp $ */
+  $Id: paloSantoMonitoring.class.php, Thu 20 May 2021 03:34:57 PM EDT, nicolas@issabel.com
+*/
 
 define ('DEFAULT_ASTERISK_RECORDING_BASEDIR', '/var/spool/asterisk/monitor');
 
@@ -35,7 +37,7 @@ class paloSantoMonitoring
         'WAV'   =>  'audio/wav',    // audio gsm en envoltura RIFF
     );
 
-    function paloSantoMonitoring(&$pDB)
+    function __construct(&$pDB)
     {
         // Se recibe como parámetro una referencia a una conexión paloDB
         if (is_object($pDB)) {
@@ -254,7 +256,7 @@ SQL_COND_EXTENSION;
 
         /* Si la ruta almacenada en recordingfile es absoluta, sólo se acepta
          * si luego de canonicalizar inicia en /var/spool/asterisk/monitor */
-        if ($file{0} == '/') {
+        if ($file[0] == '/') {
             $dir = realpath(dirname($file)); // FALSE si el directorio no existe
             if ($dir === FALSE || strpos($dir.'/', $basedir) !== 0)
                 return NULL;
@@ -280,7 +282,7 @@ SQL_COND_EXTENSION;
              * exactamente 8 dígitos y empezará con 2. */
             foreach (explode('-', $file) as $test_token) {
                 if (strlen($test_token) == 8 && ctype_digit($test_token) &&
-                    $test_token{0} == '2') {
+                    $test_token[0] == '2') {
                     // /var/spool/asterisk/monitor/2010/12/31/
                     $testdir = substr($test_token, 0, 4).'/'.
                         substr($test_token, 4, 2).'/'.

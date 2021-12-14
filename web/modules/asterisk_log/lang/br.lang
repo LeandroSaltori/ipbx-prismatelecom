@@ -23,10 +23,8 @@
 global $arrLangModule;
 $arrLangModule = array(
     "Date" => "Data",
-    "Show" => "Vizualizar",
+    "Show" => "Mostrar",
     "Type" => "Tipos",
     "Source" => "Origem",
-	"Search" => "Pesquisar",
-	"Search string" => "Campo Pesquisa"
 );
 ?>

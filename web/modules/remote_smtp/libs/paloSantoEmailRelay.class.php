@@ -2,9 +2,10 @@
   /* vim: set expandtab tabstop=4 softtabstop=4 shiftwidth=4:
   Codificación: UTF-8
   +----------------------------------------------------------------------+
-  | Issabel version 1.6-6                                               |
+  | Issabel version 4.0                                                  |
   | http://www.issabel.org                                               |
   +----------------------------------------------------------------------+
+  | Copyright (c) 2021 Issabel Foundation                                |
   | Copyright (c) 2006 Palosanto Solutions S. A.                         |
   +----------------------------------------------------------------------+
   | The contents of this file are subject to the General Public License  |
@@ -19,14 +20,14 @@
   +----------------------------------------------------------------------+
   | The Initial Developer of the Original Code is PaloSanto Solutions    |
   +----------------------------------------------------------------------+
-  $Id: paloSantoEmailRelay.class.php,v 1.1 2010-07-21 01:08:56 Bruno Macias bmacias@palosanto.com Exp $ 
-   Id: paloSantoEmailRelay.class.php,v 1.2 2015-02-05 12:48:26 Diana Panchana dpanchana@palosanto.com, Armando Chuto achuto@elastix.com Exp $*/
+  $Id: paloSantoEmailRelay.class.php, Thu 20 May 2021 08:20:51 AM EDT, nicolas@issabel.com
+*/
 
 class paloSantoEmailRelay {
     var $_DB;
     var $errMsg;
 
-    function paloSantoEmailRelay(&$pDB)
+    function __construct(&$pDB)
     {
         // Se recibe como parámetro una referencia a una conexión paloDB
         if (is_object($pDB)) {

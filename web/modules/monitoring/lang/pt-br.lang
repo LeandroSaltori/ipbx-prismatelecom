@@ -19,10 +19,9 @@
   +----------------------------------------------------------------------+
   | The Initial Developer of the Original Code is PaloSanto Solutions    |
   +----------------------------------------------------------------------+
- $Id: br.lang,v 1.0 2020/05/23 10:00:00 Prisma Telecom Franca SP - leandro@prismatelecom.com $ */
- 
+  $Id: es.lang,v 1.7 2007/09/05 00:36:42 alex Exp $ */
 global $arrLangModule;
 $arrLangModule = array(
-    "delete_file_error" => "Pelo menos um dos arquivos selecionados não pode ser excluído porque não existe",
+    "delete_file_error" => "At least one of files selected cannot be deleted because it no exists",
 );
 ?>

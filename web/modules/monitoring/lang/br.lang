@@ -22,7 +22,7 @@ Codificación: UTF-8
 | Translate by: Bruno Macias                                           |
 | Email: bmacias@palosanto.com                                         |
 +----------------------------------------------------------------------+
-$Id: br.lang,v 1.0 2020/05/23 10:00:00 Prisma Telecom Franca SP - leandro@prismatelecom.com $ */
+$Id: br.lang,v 1.0 2017/07/19 19:45:00 Ibinetwork Informática - rafael@ibinetwork.com.br $ */
 
 global $arrLangModule;
 $arrLangModule=array(
@@ -33,9 +33,9 @@ $arrLangModule=array(
 "Destination" => "Destino",
 "Duration" => "Duração",
 "Download" => "Baixar",
-"Listen" => "Ouvir",
+"Listen" => "Escutar",
 "Type" => "Tipo",
-"Message" => "Áudio",
+"Message" => "Mensagem",
 "Start_Date" => "Inicio",
 "Start Date" => "Inicio",
 "End_Date" => "Fim",

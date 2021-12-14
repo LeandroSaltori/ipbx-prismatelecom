@@ -22,8 +22,8 @@
   $Id: br.lang,v 1.0 2017-09-05 23:00:00 Ibinetwork Informatia rafael@ibinetwork.com.br $ */
 global $arrLangModule;
 $arrLangModule=array(
-    "Click below to fetch directory report. WARNING: this operation may take a long time AND impact system performance." => "Clique no botão abaixo obter informações detalhadas sobre o uso de cada diretório.<br><b>ATENÇÃO:</b> Está operação pode demorar, e impactar na perfomance do sistema.",
-    "Fetch directory report" => "Relatório Detalhado Do Disco",
+    "Click below to fetch directory report. WARNING: this operation may take a long time AND impact system performance." => "Clique no botão abaixo para recolher informações detalhadas sobre o uso de cada diretório.<br>ATENÇÃO: está operação pode demorar E impactar na perfomance do sistema.",
+    "Fetch directory report" => "Relatório detalhado do disco",
     "Logs" => "Logs",
     "Local Backups" => "Backups Local",
     "Configuration" => "Configuração",

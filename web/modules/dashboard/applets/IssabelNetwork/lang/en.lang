@@ -1,0 +1,8 @@
+<?php
+global $arrLangModule;
+$arrLangModule = array(
+    "Inactive" => "Inactive",
+    "Not installed" => "Not installed",
+    "Down" => "Service Down",
+);
+?>

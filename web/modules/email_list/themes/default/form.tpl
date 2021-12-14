@@ -1,4 +1,4 @@
-<table width="100%" border="0" cellspacing="0" cellpadding="4" align="center">
+<table width="99%" border="0" cellspacing="0" cellpadding="4" align="center">
     <tr class="letra12">
         <td align="left">
             <input class="button" type="submit" name="save_newList" value="{$SAVE}">&nbsp;&nbsp;
@@ -8,12 +8,12 @@
     </tr>
 </table>
 
-<div class="tabForm" style="font-size: 16px" width="100%">
+<div class="tabForm" style="font-size: 16px" width="99%">
     {if $StatusNew}
     <div id="mailman_detail">	
-	<table border="0" width="100%" cellspacing="0" cellpadding="8" >
+	<table border="0" width="99%" cellspacing="0" cellpadding="8" >
 	    <tr class="letra12">
-		<td align="left" width="23%"><b class='form-label-style'>{$Mailman_Setting}</b></td>
+        <td align="left" colspan=2><legend>{$Mailman_Setting}</legend></td>
 	    </tr>
 	    <tr class="letra12">
 		<td align="left"><b>{$emailmailman.LABEL}: <span  class="required">*</span></b></td>
@@ -29,9 +29,9 @@
     {/if}
 
     <div id="list_detail">
-	<table border="0" width="100%" cellspacing="0" cellpadding="8" >
+	<table border="0" width="99%" cellspacing="0" cellpadding="8" >
 	    <tr class="letra12">
-		<td align="left"><b class='form-label-style'>{$List_Setting}</b></td>
+		<td align="left" colspan=2><legend>{$List_Setting}</legend></td>
 	    </tr>
 	    <tr class="letra12">
 		<td align="left" width="23%"><b>{$domain.LABEL}: <span  class="required">*</span></b></td>

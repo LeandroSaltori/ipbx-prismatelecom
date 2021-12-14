@@ -19,41 +19,39 @@
   +----------------------------------------------------------------------+
   | The Initial Developer of the Original Code is PaloSanto Solutions    |
   +----------------------------------------------------------------------+
-  $Id: en.lang,v 1.1 2008-11-11 09:11:49 jvega jvega@palosanto.com Exp $
-  $Id: br.lang,v 1.0 2020/06/20 - Prisma Telecom Franca SP - leandro@prismatelecom.com $ */
-  
+  $Id: en.lang,v 1.1 2008-11-11 09:11:49 jvega jvega@palosanto.com Exp $ */
 global $arrLangModule;
 $arrLangModule=array(
-"Pager Email Address" => "Endereço de Emailr",
-"Confirm Password"=>"Confirmar a senha",
-"Email Attachment"=>"Anexo do email",
-"Play CID"=>"Reproduzir CID",
+"Pager Email Address" => "Pager Email Address",
+"Confirm Password"=>"Confirm Password",
+"Email Attachment"=>"Email Attachment",
+"Play CID"=>"Play CID",
 "Play Envelope"=>"Play Envelope",
 "Delete Vmail"=>"Delete Vmail",
 "Required Field"=>"Required Field",
-"Filter"=>"Filtro",
-"Configuration" => "Configuração",
-"Start Date"=>"Data Inicial",
-"End Date"=>"Data Final",
-"Voicemail List" => "Lista de correio de voz",
-"Are you sure you wish to delete voicemails?" => "Tem certeza de que deseja excluir mensagens de voz?",
-"Date"=>"Data",
-"Time"=>"Duração",
-"Message"=>"Mensagem",
+"Filter"=>"Filter",
+"Configuration" => "Configuration",
+"Start Date"=>"Start Date",
+"End Date"=>"End Date",
+"Voicemail List" => "Voicemail List",
+"Are you sure you wish to delete voicemails?" => "Are you sure you wish to delete voicemails?",
+"Date"=>"Date",
+"Time"=>"Time",
+"Message"=>"Message",
 "CallerID" => "CallerID",
-"Extension" => "Ramal",
-"Duration"=>"Duração",
+"Extension" => "Extension",
+"Duration"=>"Duration",
 "Email"=>"Email",
 "Status"=>"Status",
-"Enable" => "Habilitar",
-"Disable" => "Desabilitar",
-"Yes" => "Sim",
-"No" => "Não",
-"no_file" => "O arquivo não foi encontrado!",
-"no_extension" => "Este arquivo não pode ser baixado.",
+"Enable" => "Enable",
+"Disable" => "Disable",
+"Yes" => "Yes",
+"No" => "No",
+"no_file" => "File hasn't been found!",
+"no_extension" => "This file is not allowed to download",
 "Download" => "Download",
-"Listen" => "Ouvir",
-"no_extension_assigned" => "Não há número de ramal associado ao usuário atual. Você pode associar um número de ramal ao seu usuário clicando em<a href=\"javascript: openWindow('index.php?menu=userlist&amp;action=edit_userExtension&amp;rawmode=yes');\">here</a>",
-"contact_admin" => "Não há número de ramal associado ao usuário atual. Entre em contato com o administrador para atribuir um ramal"
+"Listen" => "Listen",
+"no_extension_assigned" => "There is no extension number associated with the current user. You can associate an extension number to your user by clicking <a href=\"javascript: openWindow('index.php?menu=userlist&amp;action=edit_userExtension&amp;rawmode=yes');\">here</a>",
+"contact_admin" => "There is no extension number associated with the current user. Please contact the administrator to assign it an extension"
 );
 ?>

@@ -20,7 +20,7 @@
   +----------------------------------------------------------------------+
   | Autores: Alex Villacís Lasso <a_villacis@palosanto.com>              |
   +----------------------------------------------------------------------+
-  $Id: index.php,v 1.1 2007/01/09 23:49:36 alex Exp $
+  $Id: EndpointManager_Standard.class.php, Tue 09 Mar 2021 08:42:15 AM EST, nicolas@issabel.com
 */
 require_once 'libs/misc.lib.php';
 require_once 'libs/paloSantoValidar.class.php';
@@ -280,7 +280,7 @@ SQL_ENDPOINT_ACCOUNTS;
             
             // Tecnología válida
             $tech = $detalles['endpoint_account'][$i]['tech'];
-            if (!in_array($tech, array('sip', 'iax2'))) {
+            if (!in_array($tech, array('sip', 'iax2', 'pjsip'))) {
                 $this->_errMsg = _tr('Unsupported tech').': '.$detalles['endpoint_account'][$i]['tech'];
                 return NULL;
             }
@@ -377,6 +377,7 @@ MODEL_PROPERTIES;
          * definido max_TECH_accounts para el modelo, se asume 0 */
         if ($bExito) {
             foreach ($countByTech as $tech => $count) {
+                if($tech=='pjsip') $tech='sip';
                 $maxtech = isset($modelProperties["max_{$tech}_accounts"])
                     ? (int)$modelProperties["max_{$tech}_accounts"] 
                     : 0;

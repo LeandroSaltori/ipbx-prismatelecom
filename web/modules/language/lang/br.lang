@@ -26,8 +26,8 @@
   $Id: br.lang,v 1.6 2007/09/05 00:36:42 gcarrillo Exp $ */
 global $arrLangModule;
 $arrLangModule=array(
-"Select language"=>"Selecione o idioma",
+"Select language"=>"Select language",
 "Continue"=>"Continue",
-"You can't change language"=>"Você não pode mudar o idioma",
+"You can't change language"=>"You can't change language",
 );
 ?>

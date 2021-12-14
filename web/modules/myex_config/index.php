@@ -80,7 +80,7 @@ function viewFormMyExtension($smarty, $module_name, $local_templates_dir, $arrCo
     $statusCF        = $pMyExtension->getConfig_CallForwarding($extension);
     $statusCFU       = $pMyExtension->getConfig_CallForwardingOnUnavail($extension);
     $statusCFB       = $pMyExtension->getConfig_CallForwardingOnBusy($extension);
-    $statusRecording = $pMyExtension->getRecordSettings($extension);            
+    $statusRecording = $pMyExtension->getRecordSettings($extension);
     $extensionCID    = $pMyExtension->getExtensionCID($extension);
     $pMyExtension->AMI_CloseConnect();
 
@@ -100,8 +100,8 @@ function viewFormMyExtension($smarty, $module_name, $local_templates_dir, $arrCo
     $smarty->assign("CANCEL", _tr("Cancel"));
     $smarty->assign("icon", "images/list.png");//extension
     $smarty->assign("EXTENSION",_tr("SETTINGS FOR YOUR EXTENSION:")." ".$extensionCID." (".$extension.")");//extension
-    $smarty->assign("TAG_CALL_FORW_CONF", _tr("Configuração de desvios de chamada"));
-    $smarty->assign("TAG_CALL_MON_SET", _tr("Configuração de Gravação de Chamadas"));
+    $smarty->assign("TAG_CALL_FORW_CONF", _tr("Call Forward Configuration"));
+    $smarty->assign("TAG_CALL_MON_SET", _tr("Call Monitor Settings"));
     $smarty->assign("recording_priority_value",$_DATA['recording_priority']);
     
     $htmlForm = $oForm->fetchForm("$local_templates_dir/form.tpl",_tr("My Extension"), $_DATA);

@@ -2,9 +2,10 @@
   /* vim: set expandtab tabstop=4 softtabstop=4 shiftwidth=4:
   Codificación: UTF-8
   +----------------------------------------------------------------------+
-  | Issabel version 4.0.4-22                                               |
+  | Issabel version 4.0                                                  |
   | http://www.issabel.org                                               |
   +----------------------------------------------------------------------+
+  | Copyright (c) 2021 Issabel Foundation                                |
   | Copyright (c) 2006 Palosanto Solutions S. A.                         |
   +----------------------------------------------------------------------+
   | The contents of this file are subject to the General Public License  |
@@ -19,7 +20,8 @@
   +----------------------------------------------------------------------+
   | The Initial Developer of the Original Code is PaloSanto Solutions    |
   +----------------------------------------------------------------------+
-  $Id: paloSantoPostfixStats.class.php,v 1.1 2011-06-01 10:06:04 Alberto Santos asantos@palosanto.com Exp $ */
+  $Id: paloSantoPostfixStats.class.php, Thu 20 May 2021 08:22:24 AM EDT, nicolas@issabel.com
+*/
 
 global $arrConf;
 require_once $arrConf['basePath']."/libs/misc.lib.php";
@@ -30,7 +32,7 @@ class paloSantoPostfixStats{
     var $_DB;
     var $errMsg;
 
-    function paloSantoPostfixStats(&$pDB)
+    function __construct(&$pDB)
     {
 	// Se recibe como parámetro una referencia a una conexión paloDB
         if (is_object($pDB)) {

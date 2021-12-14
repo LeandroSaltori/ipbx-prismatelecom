@@ -1,4 +1,4 @@
-<table width="100%" border="0" cellspacing="0" cellpadding="4" align="center">
+<table width="99%" border="0" cellspacing="0" cellpadding="4" align="center">
     <tr class="letra12">
         <td align="left">
 	    {if $activate eq 'enabled'}
@@ -10,7 +10,7 @@
         <td align="right" nowrap><span class="letra12"><span  class="required">*</span> {$REQUIRED_FIELD}</span></td>
     </tr>
 </table>
-<table class="tabForm" width="100%" >
+<table class="tabForm" width="99%" >
     <tr class="letra12">
         <td align="left" width="10%"><b>{$DATE}: <span  class="required">*</span></b></td>
         <td align="left"><b>{$FROM}</b>&nbsp;&nbsp;&nbsp;&nbsp;{$ini_date.INPUT}&nbsp;&nbsp;&nbsp;&nbsp;<b>{$TO}</b>&nbsp;&nbsp;&nbsp;&nbsp;{$end_date.INPUT}&nbsp;&nbsp;&nbsp;&nbsp;<b><span id="num_days">{$num_days}</span>&nbsp;{$days}</b></td>

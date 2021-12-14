@@ -21,8 +21,7 @@
 global $arrLangModule;
 $arrLangModule=array(
 "Ping"=> "Ping",
-"Trace"=> "Traceroute",
-"Results"=> "Resultados",
-
+"Trace"=> "Trace",
+"Results"=> "Resultados"
 );
 ?>

@@ -9,7 +9,7 @@
   +----------------------------------------------------------------------+
   | Translate bye: Erwan DESVERGNES - SDCI                               |
   | erwan.desvergnes@SDCI.fr                                             |
-  |                                                                      |                                               |
+  |                                                                               |                                               |
   +----------------------------------------------------------------------+
   | The contents of this file are subject to the General Public License  |
   | (GPL) Version 2 (the "License"); you may not use this file except in |
@@ -23,11 +23,11 @@
   +----------------------------------------------------------------------+
   | The Initial Developer of the Original Code is PaloSanto Solutions    |
   +----------------------------------------------------------------------+
-  $Id: br.lang,v 1.6 2007/09/05 00:36:42 afigueroa Exp $ */
+  $Id: br.lang,v 1.6 2007/09/05 00:36:42 gcarrillo Exp $ */
 global $arrLangModule;
 $arrLangModule=array(
-"Themes not Found" => "Tema não encontrado",
-"The theme could not be updated" => "O tema não pode ser atualizado",
-"The smarty cache could not be deleted" => "O cache do smarty não pôde ser excluído"
+"Themes not Found" => "Themes not Found",
+"The theme could not be updated" => "The theme could not be updated",
+"The smarty cache could not be deleted" => "The smarty cache could not be deleted"
 );
 ?>

@@ -26,12 +26,12 @@
 global $arrLangModule;
 $arrLangModule=array(
 "Shutdown"=>"Desligar",
-"Accept"=>"Aplicar",
-"Halt"=>"<b>Desliga</b>r",
-"Reboot"=>"<b>Reiniciar</b>",
+"Accept"=>"Proceder...",
+"Halt"=>"Desligar",
+"Reboot"=>"Reiniciar",
 "Shutdown in progress"=>"Em progresso",
 "Your system in shutting down now. Please, try again later."=>"O comando de desligar foi enviado corretamente.",
-"The reboot signal has been sent correctly." => "O comando para reinciar foi enviado corretamente.",
+"The reboot signal has been sent correctly." => "O sinal de reinciar foi enviado corretamente.",
 "Continue" => "Continuar"
 );
 ?>

@@ -22,7 +22,7 @@
   $Id: es.lang,v 1.7 2007/09/05 00:36:42 alex Exp $ */
 global $arrLangModule;
 $arrLangModule = array(
-    "Start Date" => "Data Inícial",
+    "Start Date" => "Data Início",
     "End Date" => "Data Final",
     "Field Name" => "Nome do Campo",
     "Channel" => "Canal",

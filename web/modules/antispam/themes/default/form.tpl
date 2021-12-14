@@ -3,7 +3,7 @@
         <td align="left"><input class="button" type="submit" name="update" value="{$UPDATE}"></td>
     </tr>
 </table>
-<table class="tabForm" style="font-size: 16px;" width="100%" >
+<table class="tabForm" style="font-size: 16px;" width="99%" >
     <tr class="letra12">
         <td align="left" width="18%"><b>{$status.LABEL}: </b></td>
         <td align="left" colspan="2">{$status.INPUT}</td>

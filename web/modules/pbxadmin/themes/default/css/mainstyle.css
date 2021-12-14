@@ -382,6 +382,7 @@ a.info:hover span{
 	position: relative;
 	margin-top:10px;
 	right: 1.5%;
+    margin-left: 20px;
 }
 .rnav ul {
 	/* make it scroll */
@@ -393,13 +394,12 @@ a.info:hover span{
 /*** reload button ****/
 #button_reload {
 	display:none;
-        width:90%;
-	/*width:1023px;*/
-        background-color:#f6bbbb;
-        height:23px;
-        border-radius: 6px;
-        padding-top: 3px;
-
+    width:95%;
+    background-color:#da4128;
+    color: #ff0;
+    height:23px;
+    border-radius: 6px;
+    padding-top: 3px;
 }
 
 /************************* For modules page *************************/
@@ -645,10 +645,10 @@ a.info:link, a.info:hover {
 	background-color:#DEEDF7;
 	color:#2779AA;
 	text-align:justify;
-	font-size:15px;
+	font-size:1.5em;
 	font-weight:normal;
 	padding:8px 12px;
-	line-height:15px;
+	line-height:1.5em;
 	border-radius: 5px;
 
 }
@@ -660,6 +660,71 @@ left: 0;
 right: 0;
 }
 
+h5, .h5 {
+    font-size: 1.2em;
+    padding: 5px;
+    background-color: #eee;
+    border-bottom: 3px solid #CCB3FF;
+    margin: 15px 0;
+}
+
 /* Issabel PBX wrapper, we do not have top menu, override top padding/margin */
 #page_body { margin-top:0 !important; padding-top:0 !important;  }
+
+input[type="text"], input[type="number"], input[type="checkbox"] {
+  line-height: 1.5em;
+  font-size: 1em;
+  padding: 1px 2px;
+  margin: 5px 0;
+}
+
+textarea {
+  line-height: 1.5em;
+  font-size: 1em;
+  padding: 1px 2px;
+}
+
+input.w100 {
+  width:100%;
+}
+
+select {
+  background-color: white;
+  line-height: 1.5em;
+  font-size: 1em;
+  border: 1px solid #ddd;
+  padding: 2px;
+  margin: 5px 0;
+}
+.chosen-container {
+  margin-bottom:5px;
+}
+
+.confidential:not(:focus):not(:hover) {
+  color: transparent;
+  text-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+#techlabel {
+  font-weight:bold;
+  width:100%;
+  padding: 0;
+  line-height: 2em;
+}
+
+code {
+  background: #000;
+  color: #fff;
+  font-family: Helvetica, Arial, Sans-Serif;
+}
+
+code {
+  background: #000;
+  color: #fff;
+  font-family: Helvetica, Arial, Sans-Serif;
+}
+
+table.box>tr>td {
+  padding:5px;
+}
 

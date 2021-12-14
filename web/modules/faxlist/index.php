@@ -19,8 +19,8 @@
   +----------------------------------------------------------------------+
   | The Initial Developer of the Original Code is PaloSanto Solutions    |
   +----------------------------------------------------------------------+
-  $Id: index.php,v 1.1.1.1 2007/07/06 21:31:56 gcarrillo Exp $ */
-
+  $Id: index.php, Mon 12 Jul 2021 04:44:58 PM EDT, nicolas@issabel.com
+*/
 include_once "libs/paloSantoFax.class.php";
 include_once "libs/paloSantoGrid.class.php";
 include_once "libs/paloSantoJSON.class.php";
@@ -86,12 +86,12 @@ function listFax($smarty, $module_name, $local_templates_dir)
     $arrData = array();
     foreach($arrFax as $fax) {
         $arrTmp    = array();
-        $arrTmp[0] = "&nbsp;<a href='?menu=faxnew&action=view&id=".$fax['id']."'>".$fax['name']."</a>";
-        $arrTmp[1] = $fax['extension'];
-        $arrTmp[2] = $fax['secret'];
-        $arrTmp[3] = $fax['email'];
-        $arrTmp[4] = $fax['clid_name'] . "&nbsp;";
-        $arrTmp[5] = $fax['clid_number'] . "&nbsp;";
+        $arrTmp[0] = "&nbsp;<a href='?menu=faxnew&action=view&id=".$fax['id']."'>".htmlspecialchars($fax['name'])."</a>";
+        $arrTmp[1] = htmlspecialchars($fax['extension']);
+        $arrTmp[2] = htmlspecialchars($fax['secret']);
+        $arrTmp[3] = htmlspecialchars($fax['email']);
+        $arrTmp[4] = htmlspecialchars($fax['clid_name']) . "&nbsp;";
+        $arrTmp[5] = htmlspecialchars($fax['clid_number']) . "&nbsp;";
         $arrTmp[6] = msgStatusFaxDevice($arrFaxStatus, $fax['dev_id']);
         $arrData[] = $arrTmp;
     }

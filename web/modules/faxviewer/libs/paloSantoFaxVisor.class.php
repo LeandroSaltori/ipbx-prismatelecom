@@ -5,6 +5,7 @@
   | Issabel version 0.5                                                  |
   | http://www.issabel.org                                               |
   +----------------------------------------------------------------------+
+  | Copyright (c) 2021 Issabel Foundation                                |
   | Copyright (c) 2006 Palosanto Solutions S. A.                         |
   +----------------------------------------------------------------------+
   | The contents of this file are subject to the General Public License  |
@@ -19,7 +20,8 @@
   +----------------------------------------------------------------------+
   | The Initial Developer of the Original Code is PaloSanto Solutions    |
   +----------------------------------------------------------------------+
-  $Id: paloSantoFaxVisor.class.php,v 1.1.1.1 2008/12/09 18:00:00 aflores Exp $ */
+  $Id: paloSantoFaxVisor.class.php, Thu 20 May 2021 08:08:48 AM EDT, nicolas@issabel.com
+*/
 
 /*-
 CREATE TABLE info_fax_recvq
@@ -43,7 +45,7 @@ class paloFaxVisor
     private $_db;
     var $errMsg;
 
-    function paloFaxVisor()
+    function __construct()
     {
         global $arrConf;
         

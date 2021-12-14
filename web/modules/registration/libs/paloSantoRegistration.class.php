@@ -3,9 +3,10 @@
 /* vim: set expandtab tabstop=4 softtabstop=4 shiftwidth=4:
   Codificación: UTF-8
   +----------------------------------------------------------------------+
-  | Issabel version 4.0.0-31                                               |
+  | Issabel version 4.0                                                  |
   | http://www.issabel.org                                               |
   +----------------------------------------------------------------------+
+  | Copyright (c) 2021 Issabel Foundation                                |
   | Copyright (c) 2006 Palosanto Solutions S. A.                         |
   +----------------------------------------------------------------------+
   | The contents of this file are subject to the General Public License  |
@@ -20,7 +21,8 @@
   +----------------------------------------------------------------------+
   | The Initial Developer of the Original Code is PaloSanto Solutions    |
   +----------------------------------------------------------------------+
-  $Id: paloSantoRegistration.class.php,v 1.1 2011-02-25 10:08:51 Eduardo Cueva ecueva@palosanto.com Exp $ */
+  $Id: paloSantoRegistration.class.php, Sun 23 May 2021 12:17:48 PM EDT, nicolas@issabel.com
+*/
 
 class paloSantoRegistration {
 
@@ -28,7 +30,7 @@ class paloSantoRegistration {
     var $errMsg;
     var $_webserviceURL;
 
-    public function paloSantoRegistration(&$pDB, $url) {
+    public function __construct(&$pDB, $url) {
         $this->_webserviceURL = $url;
         
         // Se recibe como parámetro una referencia a una conexión paloDB
@@ -273,8 +275,8 @@ class paloSantoRegistration {
                 break;
             case "no":
             default:
-                $info['label'] = _tr("Register");
-                $info['color'] = "#FF0000";
+                $info['label'] = _tr("Register Server");
+                $info['color'] = "#FFFF00";
                 $info['sid']   = "";
         }
  

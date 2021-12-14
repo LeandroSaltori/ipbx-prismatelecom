@@ -20,7 +20,7 @@
   +----------------------------------------------------------------------+
   | The Initial Developer of the Original Code is PaloSanto Solutions    |
   +----------------------------------------------------------------------+
-  $Id: index.php,v 1.1 2007/01/09 23:49:36 alex Exp $
+  $Id: paloControlPanelStatus.class.php, Thu 08 Apr 2021 05:37:16 PM EDT, nicolas@issabel.com
 */
 require_once 'libs/misc.lib.php';
 require_once 'libs/paloSantoDB.class.php';
@@ -39,6 +39,7 @@ class paloControlPanelStatus extends paloInterfaceSSE
     private $_bModified = FALSE;
     private $_enumsInProgress = 0;
     private $_debug = FALSE;
+    private $_bridges = array();
 
     // Constructor - abrir conexión a base de datos y a AMI    
 	function __construct()
@@ -70,7 +71,7 @@ class paloControlPanelStatus extends paloInterfaceSSE
         
         $this->_ami = new AGI_AsteriskManager2();
         if (!$this->_ami->connect('localhost', 'admin', obtenerClaveAMIAdmin())) {
-        	$this->_errMsg = _tr("Erro ao conectar ao Asterisk Manager");
+        	$this->_errMsg = _tr("Error when connecting to Asterisk Manager");
             $this->_ami = NULL;
             return;
         }
@@ -380,6 +381,10 @@ class paloControlPanelStatus extends paloInterfaceSSE
         $r = $this->_ami->SIPPeers($this->_actionid);
         if ($r['Response'] == 'Success') $this->_enumsInProgress++;
         
+        // Actualiza información de extensions y troncales PJSIP
+        $r = $this->_ami->PJSIPShowEndpoints($this->_actionid);
+        if ($r['Response'] == 'Success') $this->_enumsInProgress++;
+
         // Actualiza información de extensions y troncales IAX2
         $r = $this->_ami->IAXpeerlist($this->_actionid);
         if ($r['Response'] == 'Success') $this->_enumsInProgress++;
@@ -395,7 +400,7 @@ class paloControlPanelStatus extends paloInterfaceSSE
         // Obtener la información de todas las conferencias activas
         $r = $this->_ami->MeetmeList(NULL, $this->_actionid);        
         if ($r['Response'] == 'Success') $this->_enumsInProgress++;
-        
+ 
         // Obtener la información de todas las llamadas parqueadas
         $r = $this->_ami->ParkedCalls($this->_actionid);
         if ($r['Response'] == 'Success') $this->_enumsInProgress++;
@@ -426,6 +431,39 @@ class paloControlPanelStatus extends paloInterfaceSSE
         else return $ch;
     }
     
+    // Evento que contiene información sobre enumeración de PJSIP Endpoints
+    function msg_EndpointList($sEvent, $params, $sServer, $iPort) {
+        $this->_dumpevent($sEvent, $params);
+        if ($this->_enumsInProgress <= 0 || $params['ActionID'] != $this->_actionid) return;
+        /*
+            Event: EndpointList
+            ObjectType: endpoint
+            ObjectName: 212
+            Transport: transport-udp
+            Aor: 212
+            Auths: auth212
+            OutboundAuths:
+            Contacts: 212/sip:212@192.10.10.10:21749;ob,
+            DeviceState: Not in use
+            ActiveChannels:
+         */
+        $channel = 'PJSIP/'.$params['ObjectName'];
+        if (isset($this->_internalState['phones'][$channel])) {
+        	$objinfo =& $this->_internalState['phones'][$channel];
+            $objinfo['ip'] = NULL;
+            $objinfo['registered'] = (strpos($params['DeviceState'], 'use') > 0);
+            if ($objinfo['registered']) {
+                $partes = preg_split("/@/",$params['Contacts']);
+                $pertes = preg_split("/:/",$partes[1]);
+                $ip = $pertes[0];
+                $objinfo['ip'] = $ip;
+            }
+
+        } elseif (isset($this->_internalState['iptrunks'][$channel])) {
+
+        }
+    } 
+
     // Evento que contiene información sobre enumeración de SIPPeers, IAXpeerlist
     function msg_PeerEntry($sEvent, $params, $sServer, $iPort)
     {
@@ -450,6 +488,16 @@ class paloControlPanelStatus extends paloInterfaceSSE
                 $objinfo['ip'] = $params['IPaddress'];
             }
         }
+    }
+
+    // Evento que termina la enumeración de PJSIPShowEndpoints
+    function msg_EndpointListComplete($sEvent, $params, $sServer, $iPort)
+    {
+        $this->_dumpevent($sEvent, $params);
+
+    	if ($this->_enumsInProgress <= 0 || (isset($params['ActionID']) && $params['ActionID'] != $this->_actionid)) return;
+
+        $this->_enumsInProgress--;
     }
     
     // Evento que termina la enumeración de SIPPeers, IAXpeerlist
@@ -967,7 +1015,7 @@ UniqueID: 1380209988.23
  */
     	$trunkinfo =& $this->_identifyTrunk($params['Channel']);
         if (is_null($trunkinfo)) return;
-        
+
         $activeinfo = array(
             'Channel'           =>  $params['Channel'],
             'CallerIDNum'       =>  $this->_filterUnknown($params, 'CallerIDNum'),
@@ -1017,11 +1065,27 @@ newexten: => Array
         if (is_null($trunkinfo)) return;
         if (isset($trunkinfo['active'][$params['Channel']])) {
             $chaninfo =& $trunkinfo['active'][$params['Channel']];
-            
-            /* Los campos a excepción de Extension se ignoran porque los cambios
-             * fluyen demasiado rápido y generan demasiados eventos. */
-            foreach (array('Extension', /*'Context', 'Priority', 'Application', 'AppData'*/) as $p)
-                if (isset($params[$p])) $chaninfo[$p] = $this->_filterUnknown($params, $p);
+
+            /* Con Asterisk16 se reciben eventos de Canal down con Exten configurado, con lo que se estropea
+               la vista de callerid o connectedlinenum porque se asume llamado saliente al header Exten,
+               por lo tanto ignoramos configurar Exten en el state Down  */
+            if(isset($params['ChannelStateDesc'])) {
+                if($params['ChannelStateDesc']<>'Down') {
+                    foreach (array('Extension', /*'Context', 'Priority', 'Application', 'AppData'*/) as $p) {
+                        if (isset($params[$p])) {
+                            $chaninfo[$p] = $this->_filterUnknown($params, $p);
+                        }
+                    }
+                }
+            } else {
+                /* Los campos a excepción de Extension se ignoran porque los cambios
+                 * fluyen demasiado rápido y generan demasiados eventos. */
+                foreach (array('Extension', /*'Context', 'Priority', 'Application', 'AppData'*/) as $p) {
+                    if (isset($params[$p])) {
+                        $chaninfo[$p] = $this->_filterUnknown($params, $p);
+                    }
+                }
+            }
             $this->_bModified = TRUE;
         }
     }
@@ -1072,13 +1136,30 @@ newexten: => Array
  */
         $trunkinfo =& $this->_identifyTrunk($params['Channel']);
         if (is_null($trunkinfo)) return;
-        
+
         if (isset($trunkinfo['active'][$params['Channel']])) {
             $chaninfo =& $trunkinfo['active'][$params['Channel']];
             foreach (array('CallerIDNum', 'CallerIDName', 'ConnectedLineNum',
                 'ConnectedLineName', 'ChannelStateDesc') as $p)
                 if (isset($params[$p])) $chaninfo[$p] = $this->_filterUnknown($params, $p);
             $this->_bModified = TRUE;
+        }
+    }
+
+    function msg_BridgeDestroy($sEvent, $params, $sServer, $iPort) {
+        unset($this->_bridges[$params['BridgeUniqueid']]);
+    }
+
+    function msg_BridgeEnter($sEvent, $params, $sServer, $iPort) {
+        $numchannels = $params['BridgeNumChannels'];
+        $this->_bridges[$params['BridgeUniqueid']]['Channel'.$numchannels]=$params['Channel'];
+        $this->_bridges[$params['BridgeUniqueid']]['Uniqueid'.$numchannels]=$params['Uniqueid'];
+        $this->_bridges[$params['BridgeUniqueid']]['CallerID'.$numchannels]=$params['ConnectedLineNum'];
+
+        if($numchannels == 2) {
+            $this->_bridges[$params['BridgeUniqueid']]['Event']='Bridge';
+            $this->_bridges[$params['BridgeUniqueid']]['Bridgesate']='Link';
+            $this->msg_Bridge('Bridge', $this->_bridges[$params['BridgeUniqueid']], $sServer, $iPort);
         }
     }
 
@@ -1106,10 +1187,12 @@ newexten: => Array
             if (!is_null($trunkinfo)) {
                 if (isset($trunkinfo['active'][$params[$ch1]])) {
                     $chaninfo =& $trunkinfo['active'][$params[$ch1]];
-                    if ($params['Bridgestate'] == 'Link')
+                    if ($params['Bridgestate'] == 'Link') {
                         $chaninfo['BridgedChannel'] = $params[$ch2];
-                    elseif ($params['Bridgestate'] == 'Unlink')
+                        $chaninfo['ConnectedLineNum'] = $params['CallerID1'];
+                    } elseif ($params['Bridgestate'] == 'Unlink') {
                         $chaninfo['BridgedChannel'] = NULL;
+                    }
                     $this->_bModified = TRUE;
                 }
             }
@@ -1247,6 +1330,16 @@ peerstatus: => Array
         }
     }
 
+    function msg_QueueCallerJoin($sEvent, $params, $sServer, $iPort)
+    {
+        $this->msg_Join($sEvent, $params, $sServer, $iPort);
+    }
+
+    function msg_QueueCallerLeave($sEvent, $params, $sServer, $iPort)
+    {
+        $this->msg_Leave($sEvent, $params, $sServer, $iPort);
+    }
+
     // Mensaje que se emite al entrar una llamada a una cola
     function msg_Join($sEvent, $params, $sServer, $iPort)
     {
@@ -1343,6 +1436,104 @@ peerstatus: => Array
         }
     }
 
+    function msg_ConfbridgeLeave($sEvent, $params, $sServer, $iPort)
+    {
+        $this->_dumpevent($sEvent, $params);
+/*
+    [Event] => ConfbridgeLeave
+    [Privilege] => call,all
+    [Conference] => 700
+    [BridgeUniqueid] => 3f2064bf-dd48-48f7-9ecb-a839153c0960
+    [BridgeType] => base
+    [BridgeTechnology] => softmix
+    [BridgeCreator] => ConfBridge
+    [BridgeName] => 700
+    [BridgeNumChannels] => 3
+    [BridgeVideoSourceMode] => none
+    [Channel] => SIP/202-0000005c
+    [ChannelState] => 6
+    [ChannelStateDesc] => Up
+    [CallerIDNum] => 202
+    [CallerIDName] => Armando Garabano
+    [ConnectedLineNum] => <unknown>
+    [ConnectedLineName] => <unknown>
+    [Language] => es
+    [AccountCode] => Saliente
+    [Context] => from-internal
+    [Exten] => STARTMEETME
+    [Priority] => 4
+    [Uniqueid] => 1617916152.753
+    [Linkedid] => 1617916152.753
+    [ChanVariable] => DIALERVAR=
+    [Admin] => No
+    [local_timestamp_received] => 1617916170.2488
+
+*/
+
+        $newparam = array();
+        $newparam['Event']             = 'MeetmeLeave';
+        $newparam['Channel']           = $params['Channel'];
+        $newparam['Uniqueid']          = $params['Uniqueid'];
+        $newparam['Meetme']            = $params['BridgeName'];
+        $newparam['Usernum']           = $params['BridgeNumChannels'];
+        $newparam['CallerIDNum']       = $params['CallerIDNum'];
+        $newparam['CallerIDName']      = $params['CallerIDName'];
+        $newparam['ConnectedLineNum']  = $params['CallerIDNum'];
+        $newparam['ConnectedLineName'] = $params['CallerIDName'];
+
+        $this->msg_MeetmeLeave('MeetmeLeave', $newparam, $sServer, $iPort);
+
+    }
+
+
+    function msg_ConfbridgeJoin($sEvent, $params, $sServer, $iPort)
+    {
+        $this->_dumpevent($sEvent, $params);
+ /*
+    [Event] => ConfbridgeJoin
+    [Privilege] => call,all
+    [Conference] => 700
+    [BridgeUniqueid] => 06b0a074-fe57-4760-9d83-c848b99c2518
+    [BridgeType] => base
+    [BridgeTechnology] => softmix
+    [BridgeCreator] => ConfBridge
+    [BridgeName] => 700
+    [BridgeNumChannels] => 3
+    [BridgeVideoSourceMode] => none
+    [Channel] => SIP/202-0000005b
+    [ChannelState] => 6
+    [ChannelStateDesc] => Up
+    [CallerIDNum] => 202
+    [CallerIDName] => Armando Garabano
+    [ConnectedLineNum] => <unknown>
+    [ConnectedLineName] => <unknown>
+    [Language] => es
+    [AccountCode] => Saliente
+    [Context] => from-internal
+    [Exten] => STARTMEETME
+    [Priority] => 4
+    [Uniqueid] => 1617915621.741
+    [Linkedid] => 1617915621.741
+    [ChanVariable] => DIALERVAR=
+    [Admin] => No
+    [Muted] => No
+    [local_timestamp_received] => 1617915626.284
+ */
+        $newparam = array();
+        $newparam['Event']             = 'MeetmeJoin';
+        $newparam['Channel']           = $params['Channel'];
+        $newparam['Uniqueid']          = $params['Uniqueid'];
+        $newparam['Meetme']            = $params['BridgeName'];
+        $newparam['Usernum']           = $params['BridgeNumChannels'];
+        $newparam['CallerIDNum']       = $params['CallerIDNum'];
+        $newparam['CallerIDName']      = $params['CallerIDName'];
+        $newparam['ConnectedLineNum']  = $params['CallerIDNum'];
+        $newparam['ConnectedLineName'] = $params['CallerIDName'];
+
+        $this->msg_MeetmeJoin('MeetmeJoin', $newparam, $sServer, $iPort);
+
+    }
+
     function msg_MeetmeJoin($sEvent, $params, $sServer, $iPort)
     {
         $this->_dumpevent($sEvent, $params);
@@ -1363,6 +1554,8 @@ peerstatus: => Array
         if (isset($this->_internalState['conferences'][$params['Meetme']])) {
             $caller = array(
                 'Channel'   =>  $params['Channel'],
+                'CallerIDNum'   =>  $params['CallerIDNum'],
+                'CallerIDName'  =>  $params['CallerIDName'],
                 'ConfSince' =>  time(),
             );
             $this->_internalState['conferences'][$params['Meetme']]['callers'][$params['Channel']] = $caller;

@@ -26,14 +26,14 @@
   $Id: br.lang,v 1.6 2007/09/05 00:36:42 gcarrillo Exp $ */
 global $arrLangModule;
 $arrLangModule=array(
-"Show"=>"Aplicar",
+"Show"=>"Mostrar",
 "Apply"=>"Aplicar",
 "Resource"=>"Recursos",
-"Group" => "Grupo",
-"Group Permission" => "Permissões do Grupo",
-"View" => "Vizualizar",
-"Create" => "Criar",
-"Delete" => "Excluir",
-"Update" => "Atualizar",
+"Group" => "Group",
+"Group Permission" => "Group Permission",
+"View" => "View",
+"Create" => "Create",
+"Delete" => "Delete",
+"Update" => "Update",
 );
 ?>

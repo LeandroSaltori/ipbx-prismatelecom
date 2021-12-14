@@ -71,10 +71,26 @@ function getContent(&$smarty, $iss_module_name, $withList)
         $_GET['type']        = 'setup';
     }
 
+    $logMSG="";
+    if(isset($_POST['extension'])) {
+        $logMSG .= "extension=".$_POST['extension']." ";
+    }
+    if(isset($_POST['routename'])) {
+        $logMSG .= "route=".$_POST['routename']." ";
+    }
+    if(isset($_POST['trunk_name'])) {
+        $logMSG .= "trunk=".$_POST['trunk_name']." ";
+    }
+
     foreach ($vars as $k => $v) {
         // were use config_vars instead of, say, vars, so as not to polute
         // page.<some_module>.php (which usually uses $var or $vars)
         $config_vars[$k] = $$k = isset($_REQUEST[$k]) ? $_REQUEST[$k] : $v;
+
+        //set message for audit.log
+        if ($config_vars[$k] != null && $config_vars[$k] != "") {
+            $logMSG .= $k . "=" . $config_vars[$k] . " ";
+        }
 
         //special handeling
         switch ($k) {
@@ -97,6 +113,18 @@ function getContent(&$smarty, $iss_module_name, $withList)
         }
     }
 
+    //write audit.log
+    $ipaddr = $_SERVER['REMOTE_ADDR'];
+    $user = isset($_SESSION['issabel_user']) ? $_SESSION['issabel_user'] : 'unknown';
+    if(isset($config_vars['action'])) {
+        writeLOG("audit.log", "PBX $user: User $user performed an action [".trim($logMSG)."] from $ipaddr.");
+    }
+
+    if(isset($_POST['handler'])) {
+        if($_POST['handler']=='reload') {
+            writeLOG("audit.log", "PBX $user: User $user applied changes from $ipaddr.");
+        }
+    }
     header('Last-Modified: '.gmdate('D, d M Y H:i:s').' GMT');
     header('Expires: Sat, 01 Jan 2000 00:00:00 GMT');
     header('Cache-Control: post-check=0, pre-check=0',false);
@@ -349,6 +377,8 @@ function getContent(&$smarty, $iss_module_name, $withList)
             $display = '';
     }
 
+    $return_CONFIG_HTML = '';
+
     // show the appropriate page
     switch($display) {
             case 'modules':
@@ -504,12 +534,19 @@ function getContent(&$smarty, $iss_module_name, $withList)
 
                     // global component
                     if ( isset($currentcomponent) ) {
-                        $endpoint = $api_modules[$module_file];
-                        if(file_exists("/var/www/html/pbxapi/controllers/".$endpoint.".php")) {
-                            //$return_CONFIG_HTML = "NEW GUI ".$currentcomponent->_compname;
+                        if(isset($api_modules[$module_file])) {
+                            $endpoint = $api_modules[$module_file];
+                            if(file_exists("/var/www/html/pbxapi/controllers/".$endpoint.".php")) {
+                                //$return_CONFIG_HTML = "NEW GUI ".$currentcomponent->_compname;
+                            } else {
+                                $return_CONFIG_HTML =  $currentcomponent->generateconfigpage();
+                            }
                         } else {
                             $return_CONFIG_HTML =  $currentcomponent->generateconfigpage();
                         }
+                    }  else {
+                        // Missing new gui, load normally
+                        $return_CONFIG_HTML =  $currentcomponent->generateconfigpage();
                     }
 
                     break;
@@ -675,7 +712,7 @@ function getContent(&$smarty, $iss_module_name, $withList)
 
             // if module admin does not eixsts as privilege, insert it and grant administrator access
             if (!in_array('modules',$allprivs)) {
-                $pACL->createModulePrivilege($id_resource, 'modules', $name);
+                $pACL->createModulePrivilege($id_resource, 'modules', "Module Admin");
                 $id_privilege  = $pACL->getIdModulePrivilege($id_resource,'modules');
                 $bExito        = $pACL->grantModulePrivilege2Group($id_privilege, $id_group);
             }

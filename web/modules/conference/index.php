@@ -19,7 +19,7 @@
   +----------------------------------------------------------------------+
   | The Initial Developer of the Original Code is PaloSanto Solutions    |
   +----------------------------------------------------------------------+
-  $Id: br.lang,v 1.0 2020/05/23 10:00:00 Prisma Telecom Franca SP - leandro@prismatelecom.com $ */
+  $Id: index.php,v 1.1 2008/01/30 15:55:57 afigueroa Exp $ */
 
 function _moduleContent(&$smarty, $module_name)
 {
@@ -260,7 +260,7 @@ function report_conference($smarty, $module_name, $local_templates_dir, $pDB, $a
                             array('name' => ""),
                             array("name"      => _tr("Conference Name"),),
                             array("name"      => _tr("Conference #"),),
-                            array('name'        => _tr('Periodo')),
+                            array('name'        => _tr('Period')),
                             array('name'        => _tr("Participants"),),
                         ),
                     );

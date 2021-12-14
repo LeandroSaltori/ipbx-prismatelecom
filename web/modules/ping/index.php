@@ -32,7 +32,7 @@ function _moduleContent(&$smarty, $module_name)
         $smarty->assign("frame_url", "");    
     }
     
-    $default_host="google.com";
+    $default_host="www.issabel.org";
 
     if(isset($_POST['ping_hostname'])) {
         $ping_hostname=trim($_POST['ping_hostname']);    

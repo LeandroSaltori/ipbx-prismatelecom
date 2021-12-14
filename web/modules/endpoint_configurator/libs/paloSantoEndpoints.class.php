@@ -292,7 +292,7 @@ SQL_FILTRO_ENDPOINT;
             
             // Si el nuevo modelo permite menos cuentas que el anterior, se 
             // quitan según la tecnología
-            foreach (array('sip', 'iax2') as $tech) {
+            foreach (array('sip', 'iax2', 'pjsip') as $tech) {
             	$sModelProperty = 'max_'.$tech.'_accounts';
                 $tupla = $db->getFirstRowQuery(
                     'SELECT property_value FROM model_properties WHERE id_model = ? AND property_key = ?',
@@ -425,7 +425,7 @@ SQL_CUENTAS_NO_ASIGNADAS;
         if (!$astman->connect('localhost', 'admin', obtenerClaveAMIAdmin()))
             return NULL;
         $cuentasRegistradas = array();
-        
+
         $r = $astman->Command('sip show peers');
         if ($r['Response'] != 'Error') {
             foreach (explode("\n", $r['data']) as $s) {
@@ -435,12 +435,12 @@ SQL_CUENTAS_NO_ASIGNADAS;
                     $ip = $l[1];
                     $extArray = explode('/', $l[0]);
                     if (!isset($cuentasRegistradas[$ip]))
-                        $cuentasRegistradas[$ip] = array('sip' => array(), 'iax2' => array());
+                        $cuentasRegistradas[$ip] = array('sip' => array(), 'iax2' => array(), 'pjsip' => array());
                     $cuentasRegistradas['sip'][$extArray[0]] = $ip;
                 }
             }
         }
-        
+
         $r = $astman->Command('iax2 show peers');
         if ($r['Response'] != 'Error') {
             foreach (explode("\n", $r['data']) as $s) {
@@ -449,11 +449,25 @@ SQL_CUENTAS_NO_ASIGNADAS;
                 if (count($l) > 5 && preg_match('/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}/', $l[1]) && $l[5] == 'OK') {
                     $ip = $l[1];
                     if (!isset($cuentasRegistradas[$ip]))
-                        $cuentasRegistradas[$ip] = array('sip' => array(), 'iax2' => array());
+                        $cuentasRegistradas[$ip] = array('sip' => array(), 'iax2' => array(), 'pjsip' => array());
                     $cuentasRegistradas['iax2'][$l[0]] = $ip;
                 }
             }
         }
+
+        $r = $astman->Command('pjsip show endpoints');
+        if ($r['Response'] != 'Error') {
+            foreach (explode("\n", $r['data']) as $s) {
+                $l = preg_split('/\s+/', $s);
+                if (count($l) > 4 && $l[0]=='Contact:' && $l[3]=='Avail') {
+                    $m = preg_match("/(\d+)\/sip:(\d+)@([^:]+)/",$l[1],$matches);
+                    $ip = $matches[3];
+                    if (!isset($cuentasRegistradas[$ip]))
+                        $cuentasRegistradas[$ip] = array('sip' => array(), 'iax2' => array(), 'pjsip' => array());
+                    $cuentasRegistradas['pjsip'][$matches[1]] = $ip;
+                }
+            }
+        }        
         
         $astman->disconnect();
         return $cuentasRegistradas;

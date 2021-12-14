@@ -26,7 +26,7 @@ $arrLangModule = array(
     "Stop process" => "Parar",
     "Restart process" => "Reiniciar",
     "Enable process" => "Habilitar",
-    "Disable process" => "Desativar",
+    "Disable process" => "Desabilitar",
     "Running" => "Iniciado",
     "Not running" => "Parado",
     "Not installed" => "Não instalado",
@@ -41,6 +41,6 @@ $arrLangModule = array(
     "Invalid service" => "Inválido",
     "Invalid process action" => "Ação inválida",
     "Process control restricted to administrators" => "Restrito ao Administrador",
-	"Issabel Call Center Service" => "Serviço de Call Center ",
+	"Issabel Call Center Service" => "Serviço de Call Center Issabel",
 );
 ?>

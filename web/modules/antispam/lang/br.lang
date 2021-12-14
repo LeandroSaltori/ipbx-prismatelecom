@@ -1,8 +1,8 @@
 <?php
 /* vim: set expandtab tabstop=4 softtabstop=4 shiftwidth=4:
-   Codificación: UTF-8
+  Codificación: UTF-8
   +----------------------------------------------------------------------+
-  | Issabel version 1.3                                                  |
+  | Issabel version 4.0                                                  |
   | http://www.issabel.org                                               |
   +----------------------------------------------------------------------+
   | Copyright (c) 2006 Palosanto Solutions S. A.                         |
@@ -12,7 +12,7 @@
   | compliance with the License. You may obtain a copy of the License at |
   | http://www.opensource.org/licenses/gpl-license.php                   |
   |                                                                      |
-  | Software distributed under the License is distributed on "AS IS"     |
+  | Software distributed under the License is distributed on an "AS IS"  |
   | basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See  |
   | the License for the specific language governing rights and           |
   | limitations under the License.                                       |
@@ -25,38 +25,62 @@
   $Id: en.lang,v 1.7 2008/02/18 09:49:00 bmacias Exp $ */
 global $arrLangModule;
 $arrLangModule=array(
-"Antispam" => "Antispam",
-"Spam Level" => "Spam Level",
-"Enabled" => "Habilitar",
-"Disabled" => "Desabilitar",
-"Commad failed, try activate spam filter" => "O comando falhou ao tentar ativar o filtro de spam",
-"Failed activate spam filter" => "Falha ao ativar o filtro de spam",
-"Commad failed, try change thoroughness level" => "O comando falhou ao tentar alterar o nível de meticulosidade",
-"Failed change thoroughness level and header" => "Falha ao alterar cabeçalho e nível de eficácia",
-"Failed disactivate spam filter" => "Falha ao desativar o filtro de spam",
-"Commad failed, try disactivate spam filter" => "O comando falhou ao tentar desativar o filtro de spam", 
+"New Contact"	=> "Novo Contato",
+"Address Book"	=> "Contatos",
+"Are you sure you wish to delete the contact." => "Tem certeza de que deseja excluir o contato.",
+"First Name"	=> "Sobrenome",
+"Last Name"	=> "Nome",
+"Phone Number"	=> "Telefone",
+"Extension" => "Numero",
+"The call couldn't be realized" => "A chamada não pôde ser realizada",
+"Internal" => "Interno",
+"External" => "Externo",
+"Call" => "Ligar",
+"Phone Directory" => "Contatos",
+"CSV" => "CSV",
+"Download Address Book" => "Download Contatos",
+"Can't exist a Name empty. Line" => "Não pode existir um Nome vazio. Linha",
+"Can't exist a Last Name empty. Line" => "Não pode existir um Sobrenome vazio. Linha",
+"Can't exist a Phone Number/Job Phone Number empty. Line" => "Não pode existir um número de telefone / número de telefone do trabalho vazio. Linha",
+"Total contacts created" => "Total de contatos criados",
+"Contact Data already exists" => "Os dados de contato já existem",
+"Header File Address Book" => "O cabeçalho do arquivo deve estar na primeira linha e deve ter no mínimo três colunas: Nome, Sobrenome, Número de telefone",
+"About Address Book" => "Se você carregar um arquivo com dados de contatos já criados, esses dados não serão usados",
+"Invalid file extension.- It must be csv" => "Extensão de arquivo inválida.- Deve ser csv",
+"There aren't contacts" => "Não há contatos",
+"Address Book from CSV" => "Importar arquivo CSV",
+"Name" => "Nome",
+"Filter" => "Filtrar",
+"Show" => "Mostrar",
+"Email" => "Email",
+"File" => "Arquivo",
+"Possible file upload attack. Filename" => "Possível ataque de upload de arquivo. Nome do arquivo",
+"Please read the lines in the footer" => "Por favor, leia as linhas no rodapé",
+"Verify the header" => "Verifique o cabeçalho",
+"At minimum there must be the columns" => "No mínimo, deve haver as colunas",
+"Incomplete Columns" => "Colunas incompletas",
+"The file is incorrect or empty" => "O arquivo está incorreto ou vazio",
+"You don't have extension number associated with user" => "Não há número de ramal associado ao usuário atual. Você pode associar um número de ramal ao seu usuário clicando em <a href=\"javascript: openWindow('index.php?menu=userlist&amp;action=edit_userExtension&amp;rawmode=yes');\">here</a>",
+"ERROR" => "ERRO",
+"Transfer" => "Transferir",
+"The transfer couldn't be realized, maybe you don't have any conversation now." => "A transferência não pôde ser realizada, talvez você não tenha nenhuma conversa agora.",
+"Not_allowed_change" => "Essas alterações não são permitidas para o seu usuário. Este contato não está associado ao seu catálogo de endereços",
+"picture" => "Foto",
+"Address" => "Endereco",
+"Company" => "Empresa",
+"Notes" => "Observações",
 "Status" => "Status",
-"Save" => "Salvar",
-"Error" => "Erro",
-"Legend" => "<i>O nível 1 captura mais spam, mas também aumenta a probabilidade de falsos positivos. <br> O nível 10 captura menos spam, mas diminui a probabilidade de falsos positivos. </i>",
-"Message" => "Mensagem",
-"Successfully Activated Service Antispam" => "Serviço antispam ativado com sucesso",
-"Successfully Desactivated Service Antispam" => "Serviço antispam desativado com sucesso",
-"Antispam service is already activated" => "Serviço antispam já ativado",
-"Antispam service is already desactivated" => "Serviço antispam já desativado",
-"Could not give permissions to files" => "Não foi possível definir as permissões dos arquivos",
-"Could not make the configuration file" => "Não foi possível salvar o arquivo de configuração",
-"Could not start the service antispam" => "Não foi possível iniciar o serviço antispam",
-"Could not stop the service antispam" => "Não foi possível parar o serviço antispam",
-"Rewrite Header" => "Reescrever Cabeçalho",
-"The command failed when attempting to change the header" => "O comando falhou ao tentar mudar o cabeçalho",
-"Level" => "Nível",
-"Politics" => "Politicas",
-"Spam Capture" => "Capturar Spam",
-"Mark Subject" => "Marcar Assunto",
-"Empty Spam Folders" => "Pastas de Spam Vazias",
-"Delete Spam for more than one week" => "Exclua mensagens de spam com mais de uma semana",
-"Delete Spam for more than two week" => "Exclua mensagens de spam com mais de duas semanas ",
-"Delete Spam for more than one month" => "Exclua mensagens de spam com mais de um mês",
+"Private Contact" => "Contato Particular",
+"Public Contact" => "Contato Público",
+"Invalid file extension.- It must be png or jpg or jpeg" => "Extensão de arquivo inválida.- Ele deve ser png, jpg ou jpeg sem caracteres especiais de conteúdo",
+"Validation Error" => "Erro de Validacao",
+"Error to Upload" => "Erro ao fazer upload do arquivo",
+"Type Contact" => "Tipo Contato",
+"Internal Error" => "Certifique-se de que os parâmetros estejam corretos",
+"Not_allowed_contact" => "Este contato não existe no seu Catálogo de endereços",
+"Public editable" => "Editável em público",
+"Public not editable" => "Público não editável",
+"Private" => "Particular",
+"contact_admin" => "Não há número de ramal associado ao usuário atual. Entre em contato com o administrador para atribuir um ramal"
 );
 ?>

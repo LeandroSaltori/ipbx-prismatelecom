@@ -165,17 +165,17 @@ class paloControlPanelUtils
     {
         // Verificar fuente y destino para que sean números o #*
         if (!preg_match('/^[[:digit:]#*]+$/', $source)) {
-            $this->errMsg = _tr('Fonte inválida para chamada');
+            $this->errMsg = _tr('Invalid source for call');
         	return FALSE;
         }
         if (!preg_match('/^[[:digit:]#*]+$/', $target)) {
-            $this->errMsg = _tr('Destino inválido para a chamada');
+            $this->errMsg = _tr('Invalid target for call');
             return FALSE;
         }
     	
         $ami = new AGI_AsteriskManager2();
         if (!$ami->connect('localhost', 'admin', obtenerClaveAMIAdmin())) {
-            $this->_errMsg = _tr("Erro ao conectar ao Asterisk Manager");
+            $this->_errMsg = _tr("Error when connecting to Asterisk Manager");
             return FALSE;
         }
         
@@ -210,7 +210,7 @@ class paloControlPanelUtils
     function hangupExtension($target)
     {
         if (!preg_match('/^[[:digit:]#*]+$/', $target)) {
-            $this->errMsg = _tr('Destino inválido para a chamada');
+            $this->errMsg = _tr('Invalid target for call');
             return FALSE;
         }
         
@@ -230,7 +230,7 @@ class paloControlPanelUtils
         // Listar los canales activos y buscar el que tiene como prefijo el $dialchan
         $r = $ami->Command('core show channels concise');        
         if ($r['Response'] != 'Follows') {
-            $this->errMsg = _tr('(interno) Falha ao listar canais');
+            $this->errMsg = _tr('(internal) Failed to list channels');
         	return FALSE;
         }
         $channel = NULL;
@@ -242,7 +242,7 @@ class paloControlPanelUtils
             }
         }        
         if (is_null($channel)) {
-            $this->errMsg = _tr('Nenhum canal ativo para o destino');
+            $this->errMsg = _tr('No active channels for target');
         	$ami->disconnect();
             return FALSE;
         }
@@ -251,7 +251,7 @@ class paloControlPanelUtils
         $r = $ami->Hangup($channel);
         $ami->disconnect();
         if ($r['Response'] != 'Success') {
-            $this->errMsg = _tr('(interno) Falha ao desligar o canal ativo do destino');
+            $this->errMsg = _tr('(internal) Failed to hangup active channel for target');
             return FALSE;
         }
         return TRUE;
@@ -262,7 +262,7 @@ class paloControlPanelUtils
     {
         $dialchan = $ami->database_get('DEVICE', "$source/dial");
         if ($dialchan === FALSE) {
-            $this->_errMsg = _tr("Falha ao consultar o dialchannel para extensão de origem");
+            $this->_errMsg = _tr("Failed to query dialchannel for source extension");
             return array(NULL, NULL);
         }
         $cidname = $ami->database_get('AMPUSER', "$source/cidname");

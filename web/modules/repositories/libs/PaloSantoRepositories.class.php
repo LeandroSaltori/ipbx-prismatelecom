@@ -19,8 +19,8 @@
   +----------------------------------------------------------------------+
   | The Initial Developer of the Original Code is PaloSanto Solutions    |
   +----------------------------------------------------------------------+
-  $Id: PaloSantoRepositories.php $ */
-
+  $Id: PaloSantoRepositories.class.php, Fri 02 Jul 2021 04:59:25 PM EDT, nicolas@issabel.com
+*/
 include_once("libs/paloSantoDB.class.php");
 
 class PaloSantoRepositories
@@ -60,7 +60,7 @@ class PaloSantoRepositories
         // ATENCION: $arrConf["main_repos"] también restringe repos según el filtro
         return array(
             'base', 'updates', 'addons', 'extras', 'issabel-base', 'issabel-updates',
-            'issabel-extras', 'epel', 'commercial-addons', 'LowayResearch', 'iperfex',
+            'issabel-extras', 'epel', 'commercial-addons', 
             'pgdg91',
         );
     }
@@ -159,11 +159,18 @@ class PaloSantoRepositories
 
     function obtenerVersionDistro()
     {
-        exec("rpm -q --queryformat '%{VERSION}' centos-release",$arrSalida,$flag);
-        if($flag==0)
-            return $arrSalida[0];
-        else
+        $output='';
+        if(is_file("/etc/centos-release")) {
+            $output=file("/etc/centos-release");
+        } else if(is_file("/etc/redhat-release")) {
+            $output=file("/etc/redhat-release");
+        }
+        $ver = explode(" ",$output[0]);
+        if($output<>'') {
+            return intval($ver[3]);
+        } else {
             return '?';
+        }
     }
 
     function obtenerArquitectura()

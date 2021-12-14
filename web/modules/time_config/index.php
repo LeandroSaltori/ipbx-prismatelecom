@@ -19,8 +19,8 @@
   +----------------------------------------------------------------------+
   | The Initial Developer of the Original Code is PaloSanto Solutions    |
   +----------------------------------------------------------------------+
-  $Id: index.php,v 1.1.1.1 2007/07/06 21:31:56 gcarrillo Exp $ */
-
+  $Id: index.php, Thu 08 Jul 2021 05:40:56 PM EDT, nicolas@issabel.com
+*/
 require_once "libs/misc.lib.php";
 
 function _moduleContent(&$smarty, $module_name)
@@ -76,7 +76,7 @@ function _moduleContent(&$smarty, $module_name)
 	if ($hArchivo) {
 		$listaZonas = array();
 		while ($tupla = fgetcsv($hArchivo, 2048, "\t")) {
-			if (count($tupla) >= 3 && $tupla[0]{0} != '#') $listaZonas[] = $tupla[2];
+			if (count($tupla) >= 3 && $tupla[0][0] != '#') $listaZonas[] = $tupla[2];
 		}
 		fclose($hArchivo);
 		sort($listaZonas);

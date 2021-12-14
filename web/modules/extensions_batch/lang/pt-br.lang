@@ -19,9 +19,7 @@
   +----------------------------------------------------------------------+
   | The Initial Developer of the Original Code is PaloSanto Solutions    |
   +----------------------------------------------------------------------+
-  $Id: es.lang,v 1.7 2007/09/05 00:36:42 alex Exp $ 
-  $Id: br.lang,v 1.0 2020/05/23 - Prisma Telecom Franca SP - leandro@prismatelecom.com $ */
-  
+  $Id: es.lang,v 1.7 2007/09/05 00:36:42 alex Exp $ */
 global $arrLangModule;
 $arrLangModule = array(
     "Extensions Batch" => "Lote de Ramais",

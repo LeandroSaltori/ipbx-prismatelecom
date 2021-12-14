@@ -2,9 +2,10 @@
   /* vim: set expandtab tabstop=4 softtabstop=4 shiftwidth=4:
   Codificación: UTF-8
   +----------------------------------------------------------------------+
-  | Issabel version 1.2-2                                               |
+  | Issabel version 4.0                                                  |
   | http://www.issabel.org                                               |
   +----------------------------------------------------------------------+
+  | Copyright (c) 2021 Issabel Foundation                                |
   | Copyright (c) 2006 Palosanto Solutions S. A.                         |
   +----------------------------------------------------------------------+
   | The contents of this file are subject to the General Public License  |
@@ -19,7 +20,8 @@
   +----------------------------------------------------------------------+
   | The Initial Developer of the Original Code is PaloSanto Solutions    |
   +----------------------------------------------------------------------+
-  $Id: default.conf.php,v 1.1 2008-09-01 05:09:57 Bruno Macias <bmacias@palosanto.com> Exp $ */
+  $Id: paloSantoAntispam.class.php, Thu 20 May 2021 08:21:22 AM EDT, nicolas@issabel.com
+*/
 
 include_once "/var/www/html/libs/cyradm.php";
 include_once "/var/www/html/modules/antispam/libs/sieve-php.lib.php";
@@ -31,7 +33,7 @@ class paloSantoAntispam {
     var $folderSpamassassin;
     var $errMsg;
 
-    function paloSantoAntispam($pathPostfix,$pathSpamassassin,$fileMaster,$fileLocal)
+    function __construct($pathPostfix,$pathSpamassassin,$fileMaster,$fileLocal)
     {
         $this->fileLocal     = $fileLocal;
         $this->fileMaster    = $fileMaster;

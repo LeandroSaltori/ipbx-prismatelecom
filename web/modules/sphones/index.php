@@ -19,10 +19,7 @@
   +----------------------------------------------------------------------+
   | The Initial Developer of the Original Code is PaloSanto Solutions    |
   +----------------------------------------------------------------------+
-  $Id: index.php,v 1.1 2013-08-12 04:08:50 Jose Briones jbriones@elastix.com Exp $ 
-  $Id: br.lang,v 1.0 2020/06/20 - Prisma Telecom Franca SP - leandro@prismatelecom.com $ */
-  
-  
+  $Id: index.php,v 1.1 2013-08-12 04:08:50 Jose Briones jbriones@elastix.com Exp $ */
 //include issabel framework
 include_once "libs/paloSantoGrid.class.php";
 include_once "libs/paloSantoForm.class.php";
@@ -59,25 +56,17 @@ function _moduleContent(&$smarty, $module_name)
 function viewFormSoftphones($smarty, $module_name, $local_templates_dir, $arrConf)
 {
     $smarty->assign("icon",  "modules/$module_name/images/softphones.png");
-    $smarty->assign("xlite_img",  "modules/$module_name/images/eyebeam.png");
-    $smarty->assign("zoiper_img",  "modules/$module_name/images/anydesk.png");
-	$smarty->assign("microsip_img",  "modules/$module_name/images/microsip.png"); //Linha Adicionada Microsip - Leandro Prisma Telecom
+    $smarty->assign("xlite_img",  "modules/$module_name/images/x-lite-4-lrg.png");
+    $smarty->assign("zoiper_img",  "modules/$module_name/images/zoiper.png");
     $smarty->assign("tag_manuf_description", _tr("Developer Description"));
     $smarty->assign("download_link", _tr("Download Link"));
     $smarty->assign("tag_manufacturer", _tr("Developer"));
-	
-
 
     $smarty->assign("xlite_software_description", _tr("xlite_software_description"));
     $smarty->assign("xlite_manufacturer_description", _tr("xlite_manufacturer_description"));
-	
     $smarty->assign("zoiper_software_description", _tr("zoiper_software_description"));
     $smarty->assign("zoiper_manufacturer_description", _tr("zoiper_manufacturer_description"));
-	
-	$smarty->assign("microsip_software_description", _tr("microsip_software_description"));//Linha Adicionada Microsip - Leandro Prisma Telecom
-	$smarty->assign("microsip_manufacturer_description", _tr("microsip_manufacturer_description"));//Linha Adicionada Microsip - Leandro Prisma Telecom
-	
-	
+
     $oForm    = new paloForm($smarty,array());
     $content  = $oForm->fetchForm("$local_templates_dir/form.tpl",_tr("Softphones"), array());
 

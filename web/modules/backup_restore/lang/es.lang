@@ -22,6 +22,9 @@
   $Id: es.lang,v 1.7 2007/09/05 00:36:42 gcarrillo Exp $ */
 global $arrLangModule;
 $arrLangModule=array(
+"Decrypt" => "Desencriptar",
+"Decrypt Desc" => "Está a punto de desencriptar un archivo de respaldo que a menudo se obtiene del portal my.issabel.com. Una vez hecho, verá una nueva entrada cloudbackup-* en su lista de copias de seguridad.<br>
+La <i>Passphrase</i> debería ser la contraseña de administrador web del sistema Issabel donde se realizó la copia de seguridad.",
 "Are you sure you wish to delete backup (s)?" => "Esta seguro de eliminar el(los) backup(s)?",
 "Database" => "Base de Datos",
 "PDF" => "PDF",
@@ -46,7 +49,6 @@ $arrLangModule=array(
 "This process could take several minutes" => "Este proceso puede tomar varios minutos",
 "Mailbox" => "Buzón de Entrada",
 "(Heavy Content)" => "(Contenido Pesado)",
-"Upload" => "Subir",
 "File Upload" => "Subir Archivo",
 "The backup file would have a tar extension" => "El archivo de respaldo debe tener extensión tar",
 "Error copying the file" => "Error copiando el archivo",
@@ -96,6 +98,7 @@ $arrLangModule=array(
 "Password" => "Contraseña",
 "Local" => "Local",
 "Upload" => "Subir",
+"Upload successfully" => "Subida exitosa",
 "Download" => "Descargar",
 "Path Server FTP" => "Ruta en servidor FTP",
 "Error to connect" => "Por favor llene todos los campos para contactar al servidor",
@@ -143,5 +146,6 @@ $arrLangModule=array(
 "Version" => "Version",
 "Progress" => "Progreso",
 "Please verify if the mysql password is the correct in /etc/issabel.conf (mysqlrootpwd)" => "Por favor verifique la clave de mysql si esta correcta en /etc/issabel.conf (mysqlrootpwd)",
+"FTP server credentials not set" => "No están configuradas las credenciales del servidor FTP",
 );
 ?>

@@ -59,34 +59,24 @@ function _moduleContent(&$smarty, $module_name)
 function fail2ban_rejected()
 {
 
-    $respuesta = array();
-    exec('/usr/bin/issabel-helper fb_client status sshd', $respuesta, $retorno);
-    $output = implode(" ",$respuesta);
-    $sshban      = trim($output);
-    //  $sshban = "192.168.1.3 192.168.1.178 192.168.6.28 192.168.216.223 192.168.6.162 192.168.23.41 192.168.9.2";
+    $jails  = array('sshd','asterisk','apache-auth','issabel-gui');
+    $allban = array();
+    foreach($jails as $jail) {
+        $respuesta = array();
+        exec('/usr/bin/issabel-helper fb_client status '.$jail, $respuesta, $retorno);
+        $output = implode(" ",$respuesta);
+        $allban[$jail] = trim($output);
+    }
 
-    $respuesta = array();
-    exec('/usr/bin/issabel-helper fb_client status asterisk', $respuesta, $retorno);
-    $output = implode(" ",$respuesta);
-    $asteriskban = trim($output);
-    //  $asteriskban = "192.168.1.3 192.168.1.178 192.168.6.28 192.168.216.223 192.168.6.162 192.168.23.41 192.168.9.2";
-    
     $id=0;    
     $rejected=array();
-    if(strlen($sshban)){
-        $sshbanarr= explode(" ",$sshban);
-        foreach ($sshbanarr as $v)
-        {
-            $rejected[]=array("id"=>$id,"jail"=>"sshd","ip"=>$v);
-            $id++;
-        }
-    }
-    if(strlen($asteriskban)){
-        $asteriskbanarr= explode(" ",$asteriskban);
-        foreach ($asteriskbanarr as $v)
-        {
-            $rejected[]=array("id"=>$id,"jail"=>"asterisk","ip"=>$v);
-            $id++;
+    foreach($allban as $jail=>$content) {
+        if(strlen($content)){
+            $allbanarr = explode(" ",$content);
+            foreach ($allbanarr as $v) {
+                $rejected[]=array("id"=>$id,"jail"=>$jail,"ip"=>$v);
+                $id++;
+            }
         }
     }
     
@@ -125,13 +115,20 @@ function reportBloqueados($smarty, $module_name, $local_templates_dir, &$pDB, $a
     
     $arrResult = array_slice($rejected, $offset, ($totalBloqueados-$offset) < $limit ? ($totalBloqueados-$offset) : $limit);    
     $button_eliminar = "";
-    $arrColumns = array($button_eliminar,_tr("Jail"),_tr("IP"));
+    $arrColumns = array($button_eliminar,_tr("Jail"),_tr("IP"),_tr("Country"));
     $oGrid->setColumns($arrColumns);
     if( is_array($arrResult) && $total>0 ){
         foreach($arrResult as $key => $value){
+            $country = geoip_country_name_by_name($value['ip']);
+            $code    = geoip_country_code_by_name($value['ip']);
             $arrTmp[0] = "<input type='checkbox' name='".$value['id']."' id='".$value['id']."'>";
             $arrTmp[1] = $value['jail'];
             $arrTmp[2] = $value['ip'];
+            $bandera = "<div class='flag ".strtolower($code)."'></div>";
+            $arrTmp[3] = $country." ".$bandera;
+
+
+
             $arrData[] = $arrTmp;
         }
     }
@@ -142,7 +139,8 @@ function reportBloqueados($smarty, $module_name, $local_templates_dir, &$pDB, $a
         $contenidoModulo = "<form  method='POST' style='margin-bottom:0;' action=$url>$contenidoModulo</form>";
     //end grid parameters
 
-    return $contenidoModulo;
+    $attribution="<div style='font-size:8px;'>Geolocation data provided either by <a href='https://db-ip.com'>DB-IP</a> or <a href='https://www.maxmind.com'>MaxMind</a></div>";
+    return $contenidoModulo.$attribution;
 }
 
 function deleteBloqueados($smarty, $module_name, $local_templates_dir, &$pDB, $arrConf)

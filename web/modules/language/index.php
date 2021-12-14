@@ -46,7 +46,7 @@ function _moduleContent(&$smarty, $module_name)
 //       un
     $arrForm  = array(
         "language"  => array(
-            "LABEL"                  => _tr("Selecionar idioma"),
+            "LABEL"                  => _tr("Select language"),
             "REQUIRED"               => "yes",
             "INPUT_TYPE"             => "SELECT",
             "INPUT_EXTRA_PARAM"      => $languages,
