@@ -16,7 +16,7 @@ Este é um patch e arquivos para instalação de Issabel Linux personalizada pel
       - Instalação do subversion
       - Alteração do Favicon.ico
       - Downlod de Tema Prisma Telecom
-      - Download das Pastas LANG e MODULES atualizadas      
+      - Download das Pastas LANG e MODULES atualizadas para PT-BR     
  
 ## Outras Informações ##
   - CentOS 7.7
