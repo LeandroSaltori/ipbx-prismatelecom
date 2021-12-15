@@ -29,13 +29,12 @@ wget -O - https://github.com/LeandroSaltori/ipbx-prismatelecom/raw/main/patch-pr
 ## ISSABEL ##
 Você pode instalar o Issabel a partir de um script diretamente num CentOS mínimo com os seguintes comandos:
 
+yum update
+yum -y install wget
+wget -O - http://repo.issabel.org/issabel4-netinstall.sh | bash
 ```
 sudo wget -O - http://repo.issabel.org/issabel4-netinstall.sh | bash
 ```
-Observações: Requer yum install -y wget
-
-yum update
-yum -y install wget
 
 Executar o Path para atualização de pastas e arquivos Prisma Telecom:
 ```
