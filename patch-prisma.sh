@@ -68,7 +68,15 @@ echo ""
 svn co https://github.com/LeandroSaltori/ipbx-prismatelecom/trunk/web/modules /var/www/html/modules
 echo ""
 echo ""
+echo "Instalando GeoIP "
 echo ""
+sudo dnf makecache
+echo ""
+sleep 10
+echo ""
+sudo dnf -y install GeoIP
+echo ""
+sleep 2
 echo ""
 echo ""
 echo ""
