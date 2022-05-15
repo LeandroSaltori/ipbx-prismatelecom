@@ -71,6 +71,18 @@ Link Download: [https://sourceforge.net/projects/issabelpbx/files/Issabel%204/is
   transferdigittimeout - Determina o número de segundos que o sistema aguarda o usuário digitar o número de destino numa transferência
   featuredigittimeout  - Determina o tempo máximo, em milisegundos, que o usuário tem de tempo para digitar entre um dígito e o outro. 
 
+## Install GeoIP ##
+
+  sudo yum -y install GeoIP
+
+  Verificar versão:   geoipupdate -V
+
+  Rodar status:       geoipupdate -v
+
+  FILES
+       /etc/GeoIP.conf
+
+
 ## Como eu posso ajudar? ##
 Ajude-nos a entregar um conteúdo de qualidade. Toda ajuda é bem vinda.
 
