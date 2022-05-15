@@ -52,7 +52,7 @@ Link Download: [https://sourceforge.net/projects/issabelpbx/files/Issabel%204/is
     - CentOS 7.9 (Versão Beta foi atualizada para Centos 7.9)
     - Cofigurações de Idiomas do PBX (GUI e Audios pt-BR) na instalação.
     - PJ SIP na Interface Gráfica (Primario e Secundario)
-      - Registra divirsos ramais com o mesmo número
+      - Registra diversos ramais com o mesmo número
       - Porta SIP: 5060 /  PJSIP: 5066
       - PJ SIP só funciona para Asterisk 13 e 16
     - Novo Design de Relátorios 
