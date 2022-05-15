@@ -89,9 +89,15 @@ Link Download: [https://sourceforge.net/projects/issabelpbx/files/Issabel%204/is
   ```
  
 
-  Verificar versão:   geoipupdate -V
+  Verificar versão:  
+``` 
+    geoipupdate -V
+```
 
-  Rodar status:       geoipupdate -v
+  Rodar status:       
+```
+    geoipupdate -v
+```
 
   FILES
        /etc/GeoIP.conf
