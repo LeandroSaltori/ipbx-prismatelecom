@@ -70,11 +70,11 @@ echo ""
 echo ""
 echo "Instalando GeoIP "
 echo ""
-sudo dnf makecache
+sudo yum makecache
 echo ""
 sleep 10
 echo ""
-sudo dnf -y install GeoIP
+sudo yum -y install GeoIP
 echo ""
 sleep 2
 echo ""
