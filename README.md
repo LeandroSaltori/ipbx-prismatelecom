@@ -28,10 +28,15 @@ wget -O - https://github.com/LeandroSaltori/ipbx-prismatelecom/raw/main/patch-pr
 
 ## ISSABEL ##
 Você pode instalar o Issabel a partir de um script diretamente num CentOS mínimo com os seguintes comandos:
-
+```
 yum update
+```
+```
 yum -y install wget
+```
+```
 wget -O - http://repo.issabel.org/issabel4-netinstall.sh | bash
+```
 ```
 sudo wget -O - http://repo.issabel.org/issabel4-netinstall.sh | bash
 ```
@@ -71,9 +76,18 @@ Link Download: [https://sourceforge.net/projects/issabelpbx/files/Issabel%204/is
   transferdigittimeout - Determina o número de segundos que o sistema aguarda o usuário digitar o número de destino numa transferência
   featuredigittimeout  - Determina o tempo máximo, em milisegundos, que o usuário tem de tempo para digitar entre um dígito e o outro. 
 
-## Install GeoIP ##
+## Install GeoIP no CentOS 7 usando o yum ##
+  
+  Atualize o banco de dados yum yumusando o seguinte comando:
+  ```
+    sudo yum makecache
+  ```
 
-  sudo yum -y install GeoIP
+  Após atualizar o banco de dados, podemos instalar GeoIP usando yum o seguinte comando:
+  ```
+    sudo yum -y install GeoIP
+  ```
+ 
 
   Verificar versão:   geoipupdate -V
 
