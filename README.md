@@ -70,8 +70,8 @@ Link Download: [https://sourceforge.net/projects/issabelpbx/files/Issabel%204/is
 
   e adicione as linhas:
 
-  transferdigittimeout=6
-  featuredigittimeout=3000
+    transferdigittimeout=6
+    featuredigittimeout=3000
 
   transferdigittimeout - Determina o número de segundos que o sistema aguarda o usuário digitar o número de destino numa transferência
   featuredigittimeout  - Determina o tempo máximo, em milisegundos, que o usuário tem de tempo para digitar entre um dígito e o outro. 
