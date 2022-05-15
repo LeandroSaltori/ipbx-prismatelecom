@@ -4,19 +4,20 @@
 This is a patch and files for installing custom Isabel Linux by Prisma Telecom.
 
 ### BR - Descrição: ###
-Este é um patch e arquivos para instalação de Issabel Linux personalizada pela Prisma Telecom.
+Este é um patch e arquivos para instalação do Linux Issabel personalizada pela Prisma Telecom.
 
 ### Sobre ###
   - CentOS 7 [https://store.docker.com/images/centos] - Install Docker
   - Patch Prisma Telecom [https://github.com/LeandroSaltori/ipbx-prismatelecom]
-      - Instalaçao do TCP Dump
+      - Instalação do TCP Dump
       - Instalação do SNGREP
       - Atualização do sistema (yum -y update && yum -y upgrade)
       - Instalação do OpenVPN
       - Instalação do subversion
       - Alteração do Favicon.ico
       - Downlod de Tema Prisma Telecom
-      - Download das Pastas LANG e MODULES atualizadas para PT-BR     
+      - Download das Pastas LANG e MODULES atualizadas para PT-BR   
+      - Instalação do GeoIP  
  
 ## Outras Informações ##
   - CentOS 7.7
@@ -27,7 +28,7 @@ wget -O - https://github.com/LeandroSaltori/ipbx-prismatelecom/raw/main/patch-pr
 ```
 
 ## ISSABEL ##
-Você pode instalar o Issabel a partir de um script diretamente num CentOS com os seguintes comandos:
+Você pode instalar o Issabel a partir de um script diretamente em um CentOS com os seguintes comandos:
 ```
 yum update
 ```
@@ -51,10 +52,10 @@ Link Download: [https://sourceforge.net/projects/issabelpbx/files/Issabel%204/is
   - ATULIZAÇÕES
     - CentOS 7.9 (Versão Beta foi atualizada para Centos 7.9)
     - Cofigurações de Idiomas do PBX (GUI e Audios pt-BR) na instalação.
-    - PJ SIP na Interface Gráfica (Primario e Secundario)
+    - PJSIP na Interface Gráfica (Primario e Secundario)
       - Registra diversos ramais com o mesmo número
       - Porta SIP: 5060 /  PJSIP: 5066
-      - PJ SIP só funciona para Asterisk 13 e 16
+      - PJSIP só funciona para Asterisk 13 e 16
     - Novo Design de Relátorios 
     - Suporte ASR (Vosk) em Português na URA
       - Suporte apenas na versão Asterisk 16.16.1
@@ -78,12 +79,12 @@ Link Download: [https://sourceforge.net/projects/issabelpbx/files/Issabel%204/is
 
 ## Install GeoIP no CentOS 7 usando o yum ##
   
-  Atualize o banco de dados yum yumusando o seguinte comando:
+  Atualize o banco de dados yum usando o seguinte comando:
   ```
     sudo yum makecache
   ```
 
-  Após atualizar o banco de dados, podemos instalar GeoIP usando yum o seguinte comando:
+  Após atualizar o banco de dados, podemos instalar GeoIP usando o seguinte comando:
   ```
     sudo yum -y install GeoIP
   ```
