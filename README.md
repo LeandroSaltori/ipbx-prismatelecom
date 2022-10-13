@@ -73,9 +73,11 @@ Link Download: [https://sourceforge.net/projects/issabelpbx/files/Issabel%204/is
 
     transferdigittimeout=6
     featuredigittimeout=3000
+    atxfernoanswertimeout=35
 
   transferdigittimeout - Determina o número de segundos que o sistema aguarda o usuário digitar o número de destino numa transferência
   featuredigittimeout  - Determina o tempo máximo, em milisegundos, que o usuário tem de tempo para digitar entre um dígito e o outro. 
+  atxfernoanswertimeout - Ajusta o tempo de transferencia das chamadas.
 
 ## Install GeoIP no CentOS 7 usando o yum ##
   
