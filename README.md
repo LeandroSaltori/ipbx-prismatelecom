@@ -77,10 +77,10 @@ Link Download: [https://sourceforge.net/projects/issabelpbx/files/Issabel%204/is
     pickupsound=beep
 
 
-  transferdigittimeout - Determina o número de segundos que o sistema aguarda o usuário digitar o número de destino numa transferência
-  featuredigittimeout  - Determina o tempo máximo, em milisegundos, que o usuário tem de tempo para digitar entre um dígito e o outro. 
-  atxfernoanswertimeout - Ajusta o tempo de transferencia das chamadas.
-  pickupsound - Habilita beep ao capturar uma chamada (*8)
+    - transferdigittimeout - Determina o número de segundos que o sistema aguarda o usuário digitar o número de destino numa transferência
+    - featuredigittimeout  - Determina o tempo máximo, em milisegundos, que o usuário tem de tempo para digitar entre um dígito e o outro. 
+    - atxfernoanswertimeout - Ajusta o tempo de transferencia das chamadas.
+    - pickupsound - Habilita beep ao capturar uma chamada (*8)
 
 https://wiki.asterisk.org/wiki/display/AST/Asterisk+13+Configuration_features
 
