@@ -18,6 +18,8 @@ Este é um patch e arquivos para instalação do Linux Issabel personalizada pel
       - Downlod de Tema Prisma Telecom
       - Download das Pastas LANG e MODULES atualizadas para PT-BR   
       - Instalação do GeoIP  
+      - Ajustes automaticos de Tempo de Transferencia de Chamadas
+      - Ajustes de BIP de transferencia 
  
 ## Outras Informações ##
   - CentOS 7.7

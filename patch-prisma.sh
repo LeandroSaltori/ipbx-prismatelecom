@@ -85,7 +85,7 @@ mv features_general_custom.conf features_general_custom_old.conf
 echo ""
 cd
 echo ""
-wget -c -P cd /etc/asterisk/ https://github.com/LeandroSaltori/ipbx-prismatelecom/blob/main/web/features_general_custom.conf
+wget -c -P /etc/asterisk/ https://github.com/LeandroSaltori/ipbx-prismatelecom/blob/main/etc/asterisk/features_general_custom.conf
 echo ""
 cho ""
 cho ""
