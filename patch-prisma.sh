@@ -48,7 +48,7 @@ echo ""
 echo "Baixando o Favicon.."
 echo ""
 cd /var/www/html/ 
-unlink favicon.ico
+mv favicon.ico faicon_old.icon
 cd
 echo ""
 wget -c -P /var/www/html  https://github.com/LeandroSaltori/ipbx-prismatelecom/blob/main/web/favicon.ico
