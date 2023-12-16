@@ -78,15 +78,7 @@ sudo yum -y install GeoIP
 echo ""
 sleep 2
 echo ""
-echo "Ajustes Tempo de Transferencia de Chamadas" 
-cd /etc/asterisk/
-mv features_general_custom.conf features_general_custom_old.conf
 echo ""
-cd
-echo ""
-wget /etc/asterisk/  
-echo ""
-sleep 2
 echo ""
 echo "||||||||| ||||||||| |||  ||||||||  |||\\    //|||  ||||||||||"
 echo "|||   ||| |||   |||      |||       ||| \\  // |||  |||    |||"

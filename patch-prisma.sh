@@ -78,7 +78,18 @@ sudo yum -y install GeoIP
 echo ""
 sleep 2
 echo ""
+echo "Ajustes Tempo de Transferencia de Chamadas" 
 echo ""
+cd /etc/asterisk/
+mv features_general_custom.conf features_general_custom_old.conf
+echo ""
+cd
+echo ""
+wget -c -P cd /etc/asterisk/ https://github.com/LeandroSaltori/ipbx-prismatelecom/blob/main/web/features_general_custom.conf
+echo ""
+cho ""
+cho ""
+sleep 2
 echo ""
 echo "||||||||| ||||||||| |||  ||||||||  |||\\    //|||  ||||||||||"
 echo "|||   ||| |||   |||      |||       ||| \\  // |||  |||    |||"
