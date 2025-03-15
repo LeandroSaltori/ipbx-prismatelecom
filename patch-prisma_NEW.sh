@@ -87,8 +87,8 @@ cd
 echo ""
 wget -c -P /etc/asterisk/ https://github.com/LeandroSaltori/ipbx-prismatelecom/blob/main/etc/asterisk/features_general_custom.conf
 echo ""
-cho ""
-cho ""
+echo ""
+echo ""
 sleep 2
 echo ""
 echo "||||||||| ||||||||| |||  ||||||||  |||\\    //|||  ||||||||||"
