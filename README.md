@@ -43,6 +43,9 @@ wget -O - http://repo.issabel.org/issabel4-netinstall.sh | bash
 ```
 sudo wget -O - http://repo.issabel.org/issabel4-netinstall.sh | bash
 ```
+```
+yum -y install wget && wget -O - http://repo.issabel.org/issabel5-netinstall.sh | bash
+```
 
 Executar o Path para atualização de pastas e arquivos Prisma Telecom:
 ```
